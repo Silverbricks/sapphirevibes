@@ -9,13 +9,18 @@ export const REDIS_CLIENT = 'REDIS_CLIENT';
   providers: [
     {
       provide: REDIS_CLIENT,
-      useFactory: (config: ConfigService) =>
-        new Redis({
-          host: config.get('REDIS_HOST', 'localhost'),
-          port: config.get<number>('REDIS_PORT', 6379),
-          password: config.get('REDIS_PASSWORD') || undefined,
-          lazyConnect: true,
-        }),
+      useFactory: (config: ConfigService) => {
+        // Railway provides REDIS_URL; fallback to individual vars for local dev
+        const redisUrl = config.get<string>('REDIS_URL');
+        return redisUrl
+          ? new Redis(redisUrl, { lazyConnect: true })
+          : new Redis({
+              host: config.get('REDIS_HOST', 'localhost'),
+              port: config.get<number>('REDIS_PORT', 6379),
+              password: config.get('REDIS_PASSWORD') || undefined,
+              lazyConnect: true,
+            });
+      },
       inject: [ConfigService],
     },
   ],

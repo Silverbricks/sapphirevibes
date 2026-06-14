@@ -20,7 +20,7 @@
     "prisma:seed": "ts-node prisma/seed.ts",
     "prisma:studio": "prisma studio",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "node -e \"process.env.CI !== 'true' && require('child_process').execSync('husky', {stdio:'inherit'})\" || true"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.529.1",
