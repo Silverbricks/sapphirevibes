@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# Next.js build output
+.next/
+out/
+
+# PWA generated files (built at runtime by next-pwa)
+public/sw.js
+public/workbox-*.js
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Misc
+.DS_Store
+*.log

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SapphireVibes — Considered Décor for the Australian Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1116;
+    --ink-soft:#151a22;
+    --panel:#1b212b;
+    --gold:#c8a45c;
+    --gold-bright:#e4c884;
+    --cream:#f4efe6;
+    --cream-dim:#bfb8a9;
+    --line:rgba(200,164,92,.22);
+    --shadow:0 30px 70px -30px rgba(0,0,0,.8);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+  ::selection{background:var(--gold);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold);font-weight:500;
+  }
+
+  /* ---- announcement ---- */
+  .topbar{
+    background:linear-gradient(90deg,#11151c,#1d242f,#11151c);
+    border-bottom:1px solid var(--line);
+    text-align:center;font-size:.74rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--cream-dim);padding:10px;
+  }
+  .topbar b{color:var(--gold-bright);font-weight:500}
+
+  /* ---- nav ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,17,22,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;letter-spacing:.04em;color:var(--cream)}
+  .brand span{color:var(--gold)}
+  .navlinks{display:flex;gap:38px;list-style:none}
+  .navlinks a{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);transition:color .3s;position:relative}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s}
+  .navlinks a:hover{color:var(--cream)}
+  .navlinks a:hover::after{width:100%}
+  .navicons{display:flex;gap:22px;align-items:center}
+  .navicons svg{width:20px;height:20px;stroke:var(--cream);fill:none;stroke-width:1.4;cursor:pointer;transition:stroke .3s}
+  .navicons svg:hover{stroke:var(--gold)}
+  .cartbadge{position:relative}
+  .cartbadge b{position:absolute;top:-8px;right:-9px;background:var(--gold);color:var(--ink);font-size:.6rem;font-weight:600;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-family:'Jost'}
+
+  /* ---- hero / shop the look ---- */
+  .hero{position:relative;min-height:90vh;display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;border-bottom:1px solid var(--line)}
+  .hero-copy{padding:90px 56px 90px 0;display:flex;flex-direction:column;justify-content:center;position:relative}
+  .hero-copy h1{font-size:clamp(3rem,6vw,5.4rem);line-height:1.02;font-weight:500;margin:22px 0 24px;letter-spacing:.01em}
+  .hero-copy h1 em{font-style:italic;color:var(--gold)}
+  .hero-copy p{max-width:430px;color:var(--cream-dim);font-size:1.04rem;margin-bottom:36px}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--gold);color:var(--ink);
+    padding:16px 30px;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+    border:none;cursor:pointer;transition:.35s;width:fit-content;
+  }
+  .btn:hover{background:var(--gold-bright);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* shop the look scene */
+  .scene{position:relative;background:
+      radial-gradient(120% 90% at 70% 20%,#26303d 0%,#161b23 55%,#0e1116 100%);
+    overflow:hidden}
+  .scene::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39h40M39 0v40' stroke='%23ffffff' stroke-opacity='.03' stroke-width='1'/%3E%3C/svg%3E")}
+  .room{position:absolute;inset:0}
+  .r-floor{position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(180deg,#1f2630,#11151c)}
+  .r-wall{position:absolute;left:0;right:0;top:0;height:62%;background:linear-gradient(180deg,#2a333f,#222a34)}
+  .r-art{position:absolute;top:14%;left:18%;width:30%;height:30%;border:2px solid var(--gold);background:linear-gradient(135deg,#33414f,#222b35);box-shadow:var(--shadow)}
+  .r-art2{position:absolute;top:18%;left:54%;width:18%;height:24%;border:2px solid rgba(228,200,132,.5);background:linear-gradient(135deg,#2c3742,#1c242d)}
+  .r-vase{position:absolute;bottom:30%;left:30%;width:60px;height:120px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-radius:40% 40% 46% 46%/60% 60% 40% 40%;box-shadow:var(--shadow)}
+  .r-table{position:absolute;bottom:18%;left:20%;width:34%;height:14px;background:#0c0f14;box-shadow:0 18px 30px rgba(0,0,0,.6)}
+  .r-table::after{content:"";position:absolute;left:14%;top:14px;width:8px;height:60px;background:#0c0f14}
+  .r-table::before{content:"";position:absolute;right:14%;top:14px;width:8px;height:60px;background:#0c0f14}
+  .r-plant{position:absolute;bottom:18%;right:16%;width:90px;height:160px}
+  .r-plant i{position:absolute;bottom:0;left:34px;width:22px;height:70px;background:#0c0f14}
+  .r-plant b{position:absolute;bottom:54px;left:50%;width:60px;height:90px;background:radial-gradient(circle at 50% 80%,#3c6b4a,#244532);border-radius:60% 60% 50% 50%;transform:translateX(-50%)}
+
+  .dot{position:absolute;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--cream);background:rgba(200,164,92,.25);cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(2px);transition:.3s}
+  .dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-bright)}
+  .dot::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(200,164,92,.5);animation:pulse 2.4s infinite}
+  .dot:hover{background:var(--gold);transform:scale(1.12)}
+  @keyframes pulse{0%{transform:scale(.7);opacity:.9}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+  .dot .tip{position:absolute;left:34px;top:-6px;width:188px;background:#0c0f14;border:1px solid var(--line);padding:12px 14px;opacity:0;visibility:hidden;transform:translateX(-6px);transition:.3s;box-shadow:var(--shadow);z-index:5}
+  .dot:hover .tip{opacity:1;visibility:visible;transform:translateX(0)}
+  .dot .tip h4{font-size:.92rem;font-weight:600;color:var(--cream);margin-bottom:2px}
+  .dot .tip .price{font-family:'Jost';font-size:.82rem;color:var(--gold-bright);letter-spacing:.05em}
+  .dot .tip .add{margin-top:8px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+  .scene-tag{position:absolute;left:24px;bottom:22px;z-index:4;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);display:flex;align-items:center;gap:10px}
+  .scene-tag::before{content:"";width:30px;height:1px;background:var(--gold)}
+
+  .trust{border-bottom:1px solid var(--line);background:var(--ink-soft);overflow:hidden}
+  .trust-track{display:flex;gap:70px;padding:18px 0;white-space:nowrap;animation:slide 26s linear infinite;font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim)}
+  .trust-track span{display:flex;align-items:center;gap:14px}
+  .trust-track span::before{content:"✦";color:var(--gold)}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  section{padding:110px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1}
+  .sec-head .eyebrow{display:block;margin-bottom:14px}
+  .sec-head a{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:5px;transition:.3s}
+  .sec-head a:hover{border-color:var(--gold)}
+
+  .collections{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .col-card{position:relative;aspect-ratio:3/4;border:1px solid var(--line);overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;background:var(--panel)}
+  .col-card .bg{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .col-card:hover .bg{transform:scale(1.08)}
+  .col-card .label{position:relative;z-index:2;padding:26px;width:100%;background:linear-gradient(180deg,transparent,rgba(10,12,16,.92))}
+  .col-card .label h3{font-size:1.5rem;font-weight:600}
+  .col-card .label p{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-bright)}
+  .c1{background:linear-gradient(140deg,#3a4a3c,#1c2620)}
+  .c2{background:linear-gradient(140deg,#4a3c2e,#241c14)}
+  .c3{background:linear-gradient(140deg,#2e3a4a,#141c24)}
+  .c4{background:linear-gradient(140deg,#43304a,#1e1424)}
+
+  .products{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .prod{border:1px solid var(--line);background:var(--ink-soft);transition:.4s;position:relative;overflow:hidden}
+  .prod:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(200,164,92,.45)}
+  .prod .img{aspect-ratio:1;position:relative;display:grid;place-items:center;overflow:hidden}
+  .prod .img .obj{width:55%;height:55%;border-radius:46% 46% 48% 48%/60% 60% 40% 40%;box-shadow:var(--shadow);transition:transform .6s}
+  .prod:hover .img .obj{transform:translateY(-4px) rotate(-2deg)}
+  .badge{position:absolute;top:14px;left:14px;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:5px 10px;font-weight:600;z-index:3}
+  .badge.dark{background:var(--ink);color:var(--gold);border:1px solid var(--line)}
+  .wish{position:absolute;top:12px;right:12px;width:34px;height:34px;border:1px solid var(--line);background:rgba(14,17,22,.6);display:grid;place-items:center;cursor:pointer;z-index:3;transition:.3s}
+  .wish:hover{border-color:var(--gold)}
+  .wish svg{width:16px;height:16px;stroke:var(--cream);fill:none;stroke-width:1.4}
+  .wish.on svg{fill:var(--gold);stroke:var(--gold)}
+  .prod .meta{padding:20px}
+  .prod .meta .cat{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+  .prod .meta h3{font-size:1.28rem;font-weight:500;margin:5px 0 8px}
+  .prod .meta .row{display:flex;align-items:center;justify-content:space-between}
+  .prod .meta .price{font-family:'Jost';font-size:1.05rem;color:var(--gold-bright)}
+  .prod .meta .afterpay{font-size:.62rem;color:var(--cream-dim);letter-spacing:.04em;margin-top:3px}
+  .stars{color:var(--gold);font-size:.8rem;letter-spacing:2px}
+  .prod .add{margin-top:14px;width:100%;background:transparent;border:1px solid var(--line);color:var(--cream);padding:11px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s;font-family:'Jost'}
+  .prod .add:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+  .festival{background:
+      radial-gradient(80% 140% at 80% 0%,#2c2113 0%,transparent 60%),
+      linear-gradient(180deg,#14100a,#0e1116);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fest-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .fest-copy h2{font-size:clamp(2.4rem,4.5vw,4rem);line-height:1.02;margin:18px 0 20px;font-weight:500}
+  .fest-copy h2 em{font-style:italic;color:var(--gold)}
+  .fest-copy p{color:var(--cream-dim);max-width:440px;margin-bottom:28px}
+  .countdown{display:flex;gap:18px;margin-bottom:34px}
+  .cd-box{border:1px solid var(--line);padding:16px 20px;text-align:center;min-width:72px;background:rgba(14,17,22,.5)}
+  .cd-box b{display:block;font-family:'Cormorant Garamond';font-size:2.2rem;font-weight:600;color:var(--gold-bright);line-height:1}
+  .cd-box span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+  .fest-art{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,#3a2c17,#14100a);overflow:hidden;display:grid;place-items:center}
+  .fest-art .ring{position:absolute;border:1px solid rgba(200,164,92,.3);border-radius:50%}
+  .fest-art .lamp{width:120px;height:170px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-radius:50% 50% 12% 12%;box-shadow:0 0 70px rgba(228,200,132,.45);position:relative}
+  .fest-art .lamp::after{content:"";position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(228,200,132,.4),transparent 70%)}
+
+  .reviews-head{text-align:center;margin-bottom:54px}
+  .reviews-head h2{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:500;margin:14px 0 10px}
+  .reviews-head .rating{font-size:.9rem;color:var(--cream-dim);letter-spacing:.05em}
+  .reviews-head .rating b{color:var(--gold-bright)}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .review{border:1px solid var(--line);padding:30px;background:var(--ink-soft);position:relative}
+  .review .stars{margin-bottom:14px}
+  .review .ph{aspect-ratio:16/9;margin:-30px -30px 20px;background:linear-gradient(135deg,#2a333f,#161b23);border-bottom:1px solid var(--line)}
+  .review p{font-family:'Cormorant Garamond';font-size:1.32rem;font-style:italic;line-height:1.4;color:var(--cream)}
+  .review .who{margin-top:18px;display:flex;align-items:center;gap:12px}
+  .review .who .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#7a6234)}
+  .review .who b{font-size:.86rem;font-weight:500;font-family:'Jost'}
+  .review .who span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+  .value{padding:40px 30px;border-right:1px solid var(--line);text-align:center}
+  .value:last-child{border-right:none}
+  .value svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.3;margin-bottom:16px}
+  .value h3{font-size:1.2rem;font-weight:600;margin-bottom:6px}
+  .value p{font-size:.82rem;color:var(--cream-dim)}
+
+  .news{background:var(--ink-soft);border-top:1px solid var(--line)}
+  .news-inner{text-align:center;max-width:580px;margin:0 auto}
+  .news h2{font-size:clamp(2rem,3.6vw,2.8rem);font-weight:500;margin:14px 0 12px}
+  .news p{color:var(--cream-dim);margin-bottom:30px}
+  .news-form{display:flex;gap:0;border:1px solid var(--line);max-width:440px;margin:0 auto}
+  .news-form input{flex:1;background:transparent;border:none;padding:16px 18px;color:var(--cream);font-family:'Jost';font-size:.9rem;outline:none}
+  .news-form input::placeholder{color:var(--cream-dim)}
+  .news-form button{background:var(--gold);border:none;color:var(--ink);padding:0 26px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s}
+  .news-form button:hover{background:var(--gold-bright)}
+
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:70px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+  .foot-brand .brand{font-size:2rem;margin-bottom:16px;display:inline-block}
+  .foot-brand p{color:var(--cream-dim);max-width:280px;font-size:.9rem}
+  .foot-col h4{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .foot-col ul{list-style:none}
+  .foot-col li{margin-bottom:11px}
+  .foot-col a{font-size:.88rem;color:var(--cream-dim);transition:.3s}
+  .foot-col a:hover{color:var(--cream)}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--cream-dim);letter-spacing:.06em}
+  .pay{display:flex;gap:10px;align-items:center}
+  .pay span{border:1px solid var(--line);padding:4px 9px;font-size:.6rem;letter-spacing:.12em;color:var(--cream-dim)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--gold);color:var(--ink);padding:14px 26px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;z-index:100;transition:transform .4s;box-shadow:var(--shadow)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .hero-copy{padding:70px 0 50px}
+    .scene{min-height:60vh}
+    .collections,.products,.reviews{grid-template-columns:repeat(2,1fr)}
+    .values{grid-template-columns:repeat(2,1fr)}
+    .value:nth-child(2){border-right:none}
+    .value:nth-child(1),.value:nth-child(2){border-bottom:1px solid var(--line)}
+    .fest-grid,.foot-grid{grid-template-columns:1fr}
+    .navlinks{display:none}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    .collections,.products,.reviews{grid-template-columns:1fr}
+    .values{grid-template-columns:1fr}
+    .value{border-right:none;border-bottom:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Free shipping Australia-wide over <b>$150</b> &nbsp;·&nbsp; Pay later with <b>Afterpay</b> &amp; <b>Zip</b></div>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Sapphire<span>Vibes</span></div>
+    <ul class="navlinks">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#look">Shop the Look</a></li>
+      <li><a href="#festival">Festival</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <div class="navicons">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 000-7.8z"/></svg>
+      <span class="cartbadge"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 2H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><b id="cartCount">0</b></span>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO : SHOP THE LOOK -->
+<section class="hero wrap" id="look" style="padding-top:60px;padding-bottom:0">
+  <div class="hero-copy">
+    <span class="eyebrow">Shop the Look · The Mayfair Room</span>
+    <h1>Style the <em>whole room</em>, not just the piece.</h1>
+    <p>Tap any point in the scene to add the exact piece to your cart — or take the entire styled look in one considered gesture.</p>
+    <div class="hero-actions">
+      <button class="btn" onclick="addLook()">Shop the entire look · $642</button>
+      <a href="#shop" class="btn ghost">Browse collections</a>
+    </div>
+  </div>
+  <div class="scene">
+    <div class="room">
+      <div class="r-wall"></div>
+      <div class="r-floor"></div>
+      <div class="r-art"></div>
+      <div class="r-art2"></div>
+      <div class="r-table"></div>
+      <div class="r-vase"></div>
+      <div class="r-plant"><b></b><i></i></div>
+    </div>
+    <div class="dot" style="top:24%;left:30%" onclick="addItem('Abstract Brass Wall Art')">
+      <div class="tip"><h4>Abstract Brass Wall Art</h4><div class="price">$242.00</div><div class="add">Click to add →</div></div>
+    </div>
+    <div class="dot" style="top:30%;left:60%" onclick="addItem('Framed Andalusian Mirror')">
+      <div class="tip"><h4>Framed Andalusian Mirror</h4><div class="price">$269.50</div><div class="add">Click to add →</div></div>
+    </div>
+    <div class="dot" style="top:55%;left:34%" onclick="addItem('Dhana Gold Vase, Large')">
+      <div class="tip"><h4>Dhana Gold Vase, Large</h4><div class="price">$71.50</div><div class="add">Click to add →</div></div>
+    </div>
+    <div class="dot" style="top:62%;left:80%" onclick="addItem('Faux Monstera, 70cm')">
+      <div class="tip"><h4>Faux Monstera, 70cm</h4><div class="price">$71.50</div><div class="add">Click to add →</div></div>
+    </div>
+    <div class="scene-tag">Interactive · 4 pieces in this look</div>
+  </div>
+</section>
+
+<!-- TRUST MARQUEE -->
+<div class="trust">
+  <div class="trust-track">
+    <span>Australian owned &amp; operated</span><span>Real-room AR preview</span><span>GST-inclusive pricing</span><span>Back-in-stock alerts</span><span>Free returns within 30 days</span>
+    <span>Australian owned &amp; operated</span><span>Real-room AR preview</span><span>GST-inclusive pricing</span><span>Back-in-stock alerts</span><span>Free returns within 30 days</span>
+  </div>
+</div>
+
+<!-- COLLECTIONS -->
+<section id="shop">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Explore by mood</span><h2>Curated Collections</h2></div>
+      <a href="#">View all categories →</a>
+    </div>
+    <div class="collections">
+      <div class="col-card reveal" onclick="toast('Opening Wall Art')"><div class="bg c1"></div><div class="label"><p>68 pieces</p><h3>Wall Art</h3></div></div>
+      <div class="col-card reveal" onclick="toast('Opening Statues')"><div class="bg c2"></div><div class="label"><p>74 pieces</p><h3>Statues</h3></div></div>
+      <div class="col-card reveal" onclick="toast('Opening Mirrors')"><div class="bg c3"></div><div class="label"><p>32 pieces</p><h3>Mirrors</h3></div></div>
+      <div class="col-card reveal" onclick="toast('Opening Planters')"><div class="bg c4"></div><div class="label"><p>93 pieces</p><h3>Planters &amp; Greenery</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Most loved this season</span><h2>Trending Now</h2></div>
+      <a href="#">All trending →</a>
+    </div>
+    <div class="products" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- FESTIVAL -->
+<section class="festival" id="festival">
+  <div class="wrap fest-grid">
+    <div class="fest-copy reveal">
+      <span class="eyebrow">Festival Special · Limited Release</span>
+      <h2>The <em>Diwali</em> Collection</h2>
+      <p>Hand-finished brass, warm gold lighting, and statement centrepieces — curated for the season of light. Member early-access now open.</p>
+      <div class="countdown" id="cd">
+        <div class="cd-box"><b id="d">02</b><span>Days</span></div>
+        <div class="cd-box"><b id="h">11</b><span>Hrs</span></div>
+        <div class="cd-box"><b id="m">45</b><span>Min</span></div>
+        <div class="cd-box"><b id="s">30</b><span>Sec</span></div>
+      </div>
+      <button class="btn" onclick="toast('Opening the Diwali Collection')">Shop the collection</button>
+    </div>
+    <div class="fest-art reveal">
+      <div class="ring" style="width:80%;height:80%"></div>
+      <div class="ring" style="width:55%;height:55%"></div>
+      <div class="lamp"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <span class="eyebrow">Verified customer photos</span>
+      <h2>Seen in real Australian homes</h2>
+      <div class="rating"><b>★ 4.9</b> from <b>1,240+</b> verified reviews</div>
+    </div>
+    <div class="reviews">
+      <div class="review reveal"><div class="ph"></div><div class="stars">★★★★★</div><p>"The brass wall art is even more striking in person. Packaging was immaculate and it arrived in three days."</p><div class="who"><div class="av"></div><div><b>Priya R.</b><br><span>Verified · Melbourne</span></div></div></div>
+      <div class="review reveal"><div class="ph"></div><div class="stars">★★★★★</div><p>"Used the AR preview to check the mirror against my hallway — fit perfectly. No guesswork, no returns."</p><div class="who"><div class="av"></div><div><b>Daniel K.</b><br><span>Verified · Sydney</span></div></div></div>
+      <div class="review reveal"><div class="ph"></div><div class="stars">★★★★★</div><p>"Bought the whole styled look for our new living room. Everything tied together beautifully. Afterpay made it easy."</p><div class="who"><div class="av"></div><div><b>Aisha M.</b><br><span>Verified · Brisbane</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="values reveal">
+      <div class="value"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 21V12h6v9"/></svg><h3>View in your room</h3><p>AR preview &amp; true-to-scale dimensions before you buy.</p></div>
+      <div class="value"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><h3>Notify when back</h3><p>One tap to be alerted the moment a piece restocks.</p></div>
+      <div class="value"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg><h3>Pay your way</h3><p>Afterpay, Zip, Apple &amp; Google Pay — GST included.</p></div>
+      <div class="value"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-6.2-8.6"/><path d="M21 4v5h-5"/></svg><h3>30-day returns</h3><p>Australian support, easy returns, considered packaging.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="news">
+  <div class="wrap news-inner reveal">
+    <span class="eyebrow">The SapphireVibes Edit</span>
+    <h2>First looks, festival drops &amp; styling notes</h2>
+    <p>Join the list for early access to limited collections and member-only pricing.</p>
+    <div class="news-form">
+      <input type="email" placeholder="your@email.com.au" id="newsEmail">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand">Sapphire<span>Vibes</span></span>
+        <p>Considered home décor for the Australian home — visual-first discovery, honest dimensions, and styling that actually comes together.</p>
+      </div>
+      <div class="foot-col"><h4>Shop</h4><ul><li><a href="#">Wall Art</a></li><li><a href="#">Mirrors</a></li><li><a href="#">Statues</a></li><li><a href="#">Planters</a></li><li><a href="#">Shop the Look</a></li></ul></div>
+      <div class="foot-col"><h4>Help</h4><ul><li><a href="#">Shipping &amp; Delivery</a></li><li><a href="#">Returns &amp; Warranty</a></li><li><a href="#">Care Instructions</a></li><li><a href="#">Track Order</a></li><li><a href="#">Contact Us</a></li></ul></div>
+      <div class="foot-col"><h4>About</h4><ul><li><a href="#">Our Story</a></li><li><a href="#">Membership</a></li><li><a href="#">Referral Program</a></li><li><a href="#">Gift Registry</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 SapphireVibes · Australian owned &amp; operated · ABN 00 000 000 000</div>
+      <div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>Afterpay</span><span>Zip</span><span>PayPal</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Added to cart</div>
+
+<script>
+  const products=[
+    {n:"Hills Gold Wall Shelf",c:"Wall Décor",p:"302.50",b:"Best Seller",badgeDark:false,r:"★★★★★",col:"linear-gradient(180deg,#e4c884,#9c7c3c)"},
+    {n:"Brass Black Vase",c:"Vases",p:"412.50",b:"New",badgeDark:true,r:"★★★★★",col:"linear-gradient(180deg,#2a2a2e,#0c0c0e)"},
+    {n:"Iona Resin Cheetah",c:"Statues",p:"181.50",b:"Trending",badgeDark:false,r:"★★★★☆",col:"linear-gradient(180deg,#caa869,#7a5e2e)"},
+    {n:"Nube Metal Mirror",c:"Mirrors",p:"242.00",b:"Low Stock",badgeDark:true,r:"★★★★★",col:"linear-gradient(180deg,#9fb3c8,#3a4a5c)"}
+  ];
+  const grid=document.getElementById('productGrid');
+  products.forEach(p=>{
+    const el=document.createElement('div');
+    el.className='prod reveal';
+    el.innerHTML=`
+      <div class="img">
+        <span class="badge ${p.badgeDark?'dark':''}">${p.b}</span>
+        <div class="wish" onclick="toggleWish(this,event)"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 000-7.8z"/></svg></div>
+        <div class="obj" style="background:${p.col}"></div>
+      </div>
+      <div class="meta">
+        <div class="cat">${p.c}</div>
+        <h3>${p.n}</h3>
+        <div class="row"><span class="stars">${p.r}</span></div>
+        <div class="price">$${p.p}</div>
+        <div class="afterpay">or 4 × $${(p.p/4).toFixed(2)} with Afterpay</div>
+        <button class="add" onclick="addItem('${p.n}')">Add to cart</button>
+      </div>`;
+    grid.appendChild(el);
+  });
+
+  let cart=0;
+  const cc=document.getElementById('cartCount');
+  function bump(n){cart+=n;cc.textContent=cart;}
+  function addItem(name){bump(1);toast('Added · '+name);}
+  function addLook(){bump(4);toast('The Mayfair Room added · 4 pieces');}
+  function toggleWish(el,e){e.stopPropagation();el.classList.toggle('on');toast(el.classList.contains('on')?'Saved to wishlist':'Removed from wishlist');}
+  function subscribe(){const v=document.getElementById('newsEmail').value;toast(v&&v.includes('@')?'Welcome to the Edit':'Enter a valid email');}
+
+  const t=document.getElementById('toast');let tid;
+  function toast(msg){t.textContent=msg;t.classList.add('show');clearTimeout(tid);tid=setTimeout(()=>t.classList.remove('show'),2200);}
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  let total=(2*86400)+(11*3600)+(45*60)+30;
+  const pad=n=>String(n).padStart(2,'0');
+  setInterval(()=>{
+    if(total<=0)return;total--;
+    document.getElementById('d').textContent=pad(Math.floor(total/86400));
+    document.getElementById('h').textContent=pad(Math.floor(total%86400/3600));
+    document.getElementById('m').textContent=pad(Math.floor(total%3600/60));
+    document.getElementById('s').textContent=pad(total%60);
+  },1000);
+</script>
+</body>
+</html>

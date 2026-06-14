@@ -1,0 +1,16 @@
+{
+  "name": "SapphireVibes — Home Décor",
+  "short_name": "SapphireVibes",
+  "description": "Considered home décor for the Australian home",
+  "theme_color": "#0e1116",
+  "background_color": "#0e1116",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "categories": ["shopping", "lifestyle"]
+}
