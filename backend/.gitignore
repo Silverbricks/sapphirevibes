@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+coverage/
+*.log
+*.pem
+prisma/migrations/*.sql
+.DS_Store
