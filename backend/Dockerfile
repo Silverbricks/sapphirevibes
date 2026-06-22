@@ -1,7 +1,5 @@
-FROM node:20-alpine
+FROM node:20-slim
 WORKDIR /app
-
-RUN apk add --no-cache openssl
 
 COPY package*.json ./
 RUN npm ci --legacy-peer-deps
