@@ -7,29 +7,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: '#0e1116',
-        'ink-soft': '#151a22',
-        panel: '#1b212b',
-        gold: '#c8a45c',
-        'gold-bright': '#e4c884',
-        cream: '#f4efe6',
-        'cream-dim': '#bfb8a9',
+        ink:           '#FFFFFF',
+        'ink-soft':    '#F8F5F1',
+        panel:         '#F2EDE5',
+        charcoal:      '#FAFAF8',
+        gold:          '#B49155',
+        'gold-bright': '#C9A96E',
+        cream:         '#111111',
+        'cream-dim':   '#6B6560',
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-        sans: ['Jost', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', '"Times New Roman"', 'serif'],
+        sans:  ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       boxShadow: {
-        luxury: '0 30px 70px -30px rgba(0,0,0,0.8)',
+        luxury: '0 8px 40px rgba(0,0,0,0.10)',
+        card:   '0 4px 24px rgba(0,0,0,0.07)',
+        lift:   '0 20px 60px rgba(0,0,0,0.12)',
       },
       animation: {
-        marquee: 'marquee 26s linear infinite',
-        pulse: 'pulse 2.4s infinite',
+        marquee:         'marquee-slide 26s linear infinite',
+        'trust-scroll':  'trust-scroll 32s linear infinite',
       },
       keyframes: {
-        marquee: {
+        'marquee-slide': {
           from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-50%)' },
+          to:   { transform: 'translateX(-50%)' },
+        },
+        'trust-scroll': {
+          from: { transform: 'translateX(0)' },
+          to:   { transform: 'translateX(-33.333%)' },
         },
       },
     },

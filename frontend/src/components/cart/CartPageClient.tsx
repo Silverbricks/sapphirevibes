@@ -113,7 +113,7 @@ export function CartPageClient() {
               </div>
 
               {/* Price — desktop only */}
-              <span className="hidden sm:block text-right text-sm" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>
+              <span className="hidden sm:block text-right text-sm" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>
                 {item.price > 0 ? `$${item.price.toFixed(2)}` : '—'}
               </span>
 
@@ -125,7 +125,7 @@ export function CartPageClient() {
                   style={{ background: 'none', border: 'none', color: 'var(--cream)', cursor: 'pointer' }}
                   aria-label="Decrease quantity"
                 >−</button>
-                <span className="w-7 text-center text-sm" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>{item.quantity}</span>
+                <span className="w-7 text-center text-sm" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>{item.quantity}</span>
                 <button
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
                   className="w-8 h-8 flex items-center justify-center text-lg transition-colors duration-200 hover:text-[var(--gold)]"
@@ -135,7 +135,7 @@ export function CartPageClient() {
               </div>
 
               {/* Line total */}
-              <span className="hidden sm:block text-right text-sm font-medium" style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>
+              <span className="hidden sm:block text-right text-sm font-medium" style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>
                 {item.price > 0 ? `$${(item.price * item.quantity).toFixed(2)}` : '—'}
               </span>
             </div>
@@ -230,7 +230,7 @@ function SummaryRow({ label, value, highlight, dim, large }: { label: string; va
       <span className={`${large ? 'font-medium text-sm' : 'text-sm'}`} style={{ color: dim ? 'var(--cream-dim)' : 'var(--cream)' }}>
         {label}
       </span>
-      <span className={`${large ? 'font-semibold text-base' : 'text-sm'} flex-shrink-0`} style={{ color: highlight ? 'var(--gold)' : large ? 'var(--gold-bright)' : 'var(--cream)', fontFamily: 'Jost' }}>
+      <span className={`${large ? 'font-semibold text-base' : 'text-sm'} flex-shrink-0`} style={{ color: highlight ? 'var(--gold)' : large ? 'var(--gold-bright)' : 'var(--cream)', fontFamily: 'Inter' }}>
         {value}
       </span>
     </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { subscriptionsService } from '@/services/subscriptions.service';
@@ -64,7 +64,7 @@ export function SubscriptionPageClient() {
                   <button
                     onClick={() => setShowPauseModal(true)}
                     className="px-4 py-2.5 text-xs tracking-widest uppercase transition-all duration-300"
-                    style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}
+                    style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)'; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--line)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream-dim)'; }}
                   >
@@ -73,7 +73,7 @@ export function SubscriptionPageClient() {
                   <button
                     onClick={() => cancelMutation.mutate()}
                     className="px-4 py-2.5 text-xs tracking-widest uppercase transition-all duration-300"
-                    style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}
+                    style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}
                   >
                     Cancel
                   </button>
@@ -84,7 +84,7 @@ export function SubscriptionPageClient() {
                   onClick={() => resumeMutation.mutate()}
                   disabled={resumeMutation.isPending}
                   className="px-4 py-2.5 text-xs tracking-widest uppercase"
-                  style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}
+                  style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}
                 >
                   {resumeMutation.isPending ? 'Resuming…' : 'Resume'}
                 </button>
@@ -122,7 +122,7 @@ export function SubscriptionPageClient() {
 
               <h3 className="font-serif text-xl font-medium mb-1" style={{ color: 'var(--cream)' }}>{plan.name}</h3>
               <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-3xl font-semibold" style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>
+                <span className="text-3xl font-semibold" style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>
                   ${Number(plan.price).toFixed(2)}
                 </span>
                 <span className="text-sm" style={{ color: 'var(--cream-dim)' }}>
@@ -154,7 +154,7 @@ export function SubscriptionPageClient() {
                   color: isCurrentPlan ? 'var(--gold)' : 'var(--ink)',
                   border: isCurrentPlan ? '1px solid var(--gold)' : 'none',
                   cursor: isCurrentPlan ? 'default' : 'pointer',
-                  fontFamily: 'Jost',
+                  fontFamily: 'Inter',
                   letterSpacing: '0.18em',
                 }}
                 onMouseEnter={(e) => { if (!isCurrentPlan) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
@@ -192,13 +192,13 @@ function PauseModal({ onConfirm, onCancel, loading }: { onConfirm: (reason: stri
           onChange={(e) => setReason(e.target.value)}
           placeholder="Travelling, tight budget, etc."
           className="w-full px-4 py-3 text-sm outline-none mb-6"
-          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Jost' }}
+          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Inter' }}
         />
         <div className="flex gap-3">
-          <button onClick={onCancel} className="flex-1 py-3 text-xs tracking-widest uppercase" style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}>
+          <button onClick={onCancel} className="flex-1 py-3 text-xs tracking-widest uppercase" style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}>
             Keep active
           </button>
-          <button onClick={() => onConfirm(reason)} disabled={loading} className="flex-1 py-3 text-xs tracking-widest uppercase" style={{ background: '#fbbf24', color: '#1a1a1a', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}>
+          <button onClick={() => onConfirm(reason)} disabled={loading} className="flex-1 py-3 text-xs tracking-widest uppercase" style={{ background: '#fbbf24', color: '#1a1a1a', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}>
             {loading ? 'Pausing…' : 'Pause'}
           </button>
         </div>

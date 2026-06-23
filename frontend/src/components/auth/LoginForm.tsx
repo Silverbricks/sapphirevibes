@@ -52,7 +52,7 @@ export function LoginForm() {
             background: 'transparent',
             border: '1px solid var(--line)',
             color: 'var(--cream)',
-            fontFamily: 'Jost',
+            fontFamily: 'Inter',
           }}
           onFocus={(e) => (e.target.style.borderColor = 'var(--gold)')}
           onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
@@ -70,7 +70,7 @@ export function LoginForm() {
             background: 'transparent',
             border: '1px solid var(--line)',
             color: 'var(--cream)',
-            fontFamily: 'Jost',
+            fontFamily: 'Inter',
           }}
           onFocus={(e) => (e.target.style.borderColor = 'var(--gold)')}
           onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
@@ -81,7 +81,7 @@ export function LoginForm() {
         type="submit"
         disabled={loading}
         className="w-full py-4 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-60"
-        style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+        style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
         onMouseEnter={(e) => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold)'; }}
       >
@@ -100,7 +100,7 @@ export function LoginForm() {
       <button
         type="button"
         className="w-full py-3.5 text-xs tracking-widest uppercase transition-all duration-300"
-        style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.16em' }}
+        style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.16em' }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)'; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--line)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream-dim)'; }}
         onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`}

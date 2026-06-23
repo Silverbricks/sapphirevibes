@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -63,7 +63,7 @@ export default function ForgotPasswordPage() {
                   placeholder="you@example.com.au"
                   required
                   className="w-full px-4 py-3 text-sm outline-none"
-                  style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Jost' }}
+                  style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Inter' }}
                   onFocus={(e) => (e.target.style.borderColor = 'var(--gold)')}
                   onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
                 />
@@ -73,7 +73,7 @@ export default function ForgotPasswordPage() {
                 type="submit"
                 disabled={loading}
                 className="w-full py-4 text-xs tracking-widest uppercase font-semibold disabled:opacity-60"
-                style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+                style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
               >
                 {loading ? 'Sending…' : 'Send reset link'}
               </button>

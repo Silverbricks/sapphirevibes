@@ -35,7 +35,7 @@ export function CartDrawer() {
               width: 'min(420px, 100vw)',
               background: 'var(--charcoal)',
               borderLeft: '1px solid var(--line)',
-              boxShadow: '-40px 0 80px rgba(0,0,0,0.5)',
+              boxShadow: '-8px 0 40px rgba(0,0,0,0.10)',
             }}
             variants={slideInRight}
             initial="hidden"
@@ -55,7 +55,7 @@ export function CartDrawer() {
                 {itemCount > 0 && (
                   <span
                     className="text-xs font-medium px-2 py-0.5 rounded-full"
-                    style={{ background: 'var(--gold)', color: 'var(--ink)', fontFamily: 'Jost' }}
+                    style={{ background: 'var(--gold)', color: 'var(--ink)', fontFamily: 'Inter' }}
                   >
                     {itemCount}
                   </span>
@@ -183,7 +183,7 @@ export function CartDrawer() {
                             >
                               −
                             </button>
-                            <span className="w-8 text-center text-xs" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>
+                            <span className="w-8 text-center text-xs" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>
                               {item.quantity}
                             </span>
                             <button
@@ -199,7 +199,7 @@ export function CartDrawer() {
 
                           {/* Price + remove */}
                           <div className="flex items-center gap-3">
-                            <span className="text-sm" style={{ color: 'var(--gold)', fontFamily: 'Jost' }}>
+                            <span className="text-sm" style={{ color: 'var(--gold)', fontFamily: 'Inter' }}>
                               {item.price > 0 ? `$${(item.price * item.quantity).toFixed(2)}` : '—'}
                             </span>
                             <button
@@ -228,11 +228,11 @@ export function CartDrawer() {
               <div className="shrink-0 px-6 py-5" style={{ borderTop: '1px solid var(--line)', background: 'var(--luxury-surface)' }}>
                 <div className="flex justify-between mb-1">
                   <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--cream-dim)', letterSpacing: '0.18em' }}>Subtotal</span>
-                  <span className="font-medium" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>${subtotal.toFixed(2)}</span>
+                  <span className="font-medium" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>${subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between mb-4">
                   <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--cream-dim)', letterSpacing: '0.18em' }}>Shipping</span>
-                  <span className="text-sm" style={{ color: shipping === 0 ? 'var(--success)' : 'var(--cream-dim)', fontFamily: 'Jost' }}>
+                  <span className="text-sm" style={{ color: shipping === 0 ? 'var(--success)' : 'var(--cream-dim)', fontFamily: 'Inter' }}>
                     {shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}
                   </span>
                 </div>
@@ -245,7 +245,7 @@ export function CartDrawer() {
                       background: 'transparent',
                       border: '1px solid var(--line)',
                       color: 'var(--cream-dim)',
-                      fontFamily: 'Jost',
+                      fontFamily: 'Inter',
                       letterSpacing: '0.2em',
                     }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--cream)'; }}
@@ -260,7 +260,7 @@ export function CartDrawer() {
                     style={{
                       background: 'var(--gold)',
                       color: 'var(--ink)',
-                      fontFamily: 'Jost',
+                      fontFamily: 'Inter',
                       letterSpacing: '0.2em',
                     }}
                   >

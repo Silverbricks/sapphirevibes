@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -24,7 +24,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           style: {
             background: 'var(--gold)',
             color: 'var(--ink)',
-            fontFamily: 'Jost, sans-serif',
+            fontFamily: 'Inter, sans-serif',
             fontSize: '0.74rem',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',

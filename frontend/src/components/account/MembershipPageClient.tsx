@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { membershipsService } from '@/services/memberships.service';
@@ -52,7 +52,7 @@ function CircularProgress({ progress, color, size = 140 }: { progress: number; c
       <text x={cx} y={cy - 4} textAnchor="middle" fontSize="22" fontFamily="Cormorant Garamond, serif" fontWeight="500" fill={color}>
         {Math.round(pct)}%
       </text>
-      <text x={cx} y={cy + 14} textAnchor="middle" fontSize="8" fontFamily="Jost, sans-serif" fill="var(--cream-dim)" letterSpacing="2">
+      <text x={cx} y={cy + 14} textAnchor="middle" fontSize="8" fontFamily="Inter, sans-serif" fill="var(--cream-dim)" letterSpacing="2">
         TO NEXT
       </text>
     </svg>
@@ -242,7 +242,7 @@ export function MembershipPageClient() {
           <div className="sticky top-24" style={{ border: '1px solid var(--line)', padding: 24, background: 'var(--ink-soft)' }}>
             <h2 className="font-serif text-xl font-medium mb-2" style={{ color: 'var(--cream)' }}>Redeem Points</h2>
             <p className="text-xs mb-5" style={{ color: 'var(--cream-dim)' }}>100 points = $1.00 discount on your next order.</p>
-            <p className="text-2xl font-semibold mb-5" style={{ color: tierColors.primary, fontFamily: 'Jost' }}>
+            <p className="text-2xl font-semibold mb-5" style={{ color: tierColors.primary, fontFamily: 'Inter' }}>
               {balance.toLocaleString()} pts
             </p>
             <label className="block text-[0.65rem] tracking-widest uppercase mb-2" style={{ color: 'var(--cream-dim)', letterSpacing: '0.18em' }}>Points to redeem</label>
@@ -256,7 +256,7 @@ export function MembershipPageClient() {
                 onChange={(e) => setRedeemPoints(e.target.value)}
                 placeholder="e.g. 500"
                 className="flex-1 px-3 py-3 text-sm outline-none bg-transparent"
-                style={{ color: 'var(--cream)', fontFamily: 'Jost' }}
+                style={{ color: 'var(--cream)', fontFamily: 'Inter' }}
               />
             </div>
             {redeemPoints && Number(redeemPoints) >= 100 && (
@@ -268,7 +268,7 @@ export function MembershipPageClient() {
               onClick={() => redeemMutation.mutate(Number(redeemPoints))}
               disabled={redeemMutation.isPending || !redeemPoints || Number(redeemPoints) < 100 || Number(redeemPoints) > balance}
               className="w-full py-3 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-50 hover:brightness-110"
-              style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.18em' }}
+              style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.18em' }}
             >
               {redeemMutation.isPending ? 'Redeeming…' : 'Redeem points'}
             </button>
@@ -280,7 +280,7 @@ export function MembershipPageClient() {
                   {history.slice(0, 5).map((tx: any) => (
                     <div key={tx.id} className="flex justify-between text-xs">
                       <span style={{ color: 'var(--cream-dim)' }}>{tx.description.substring(0, 28)}…</span>
-                      <span style={{ color: tx.points > 0 ? 'var(--success)' : 'var(--error)', fontFamily: 'Jost' }}>
+                      <span style={{ color: tx.points > 0 ? 'var(--success)' : 'var(--error)', fontFamily: 'Inter' }}>
                         {tx.points > 0 ? '+' : ''}{tx.points}
                       </span>
                     </div>

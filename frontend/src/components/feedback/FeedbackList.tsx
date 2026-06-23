@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -31,7 +31,7 @@ export function FeedbackList({ targetId }: Props) {
   const pages: number = data?.pages ?? 1;
 
   return (
-    <div style={{ fontFamily: 'Jost, sans-serif' }}>
+    <div style={{ fontFamily: 'Inter, sans-serif' }}>
       {/* Controls */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 8 }}>
         <div style={{ fontSize: '0.82rem', color: 'var(--cream-dim)' }}>

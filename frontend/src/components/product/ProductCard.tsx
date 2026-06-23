@@ -110,15 +110,15 @@ export function ProductCard({ product }: { product: any }) {
             style={{
               width: 38, height: 38,
               borderRadius: '50%',
-              border: wishlisted ? '1px solid var(--gold)' : '1px solid rgba(255,255,255,0.12)',
-              background: wishlisted ? 'rgba(200,164,92,0.15)' : 'rgba(14,17,22,0.65)',
+              border: wishlisted ? '1px solid var(--gold)' : '1px solid rgba(0,0,0,0.12)',
+              background: wishlisted ? 'var(--gold)' : 'rgba(255,255,255,0.88)',
               cursor: 'pointer',
             }}
             aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
             whileTap={{ scale: 0.88 }}
             transition={{ duration: 0.2 }}
           >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill={wishlisted ? 'var(--gold)' : 'none'} stroke={wishlisted ? 'var(--gold)' : 'var(--cream)'} strokeWidth="1.4">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill={wishlisted ? '#FFFFFF' : 'none'} stroke={wishlisted ? '#FFFFFF' : '#555555'} strokeWidth="1.4">
               <path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 10-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 000-7.8z" />
             </svg>
           </motion.button>
@@ -132,7 +132,7 @@ export function ProductCard({ product }: { product: any }) {
                 exit={{ opacity: 0, y: 8 }}
                 transition={{ duration: 0.2, ease }}
                 className="absolute bottom-0 left-0 right-0 py-3 text-center text-[0.62rem] tracking-[0.25em] uppercase z-10"
-                style={{ background: 'rgba(14,17,22,0.82)', color: 'var(--gold)', letterSpacing: '0.25em' }}
+                style={{ background: 'rgba(0,0,0,0.72)', color: 'var(--gold)', letterSpacing: '0.25em' }}
               >
                 Quick View
               </motion.div>
@@ -185,11 +185,11 @@ export function ProductCard({ product }: { product: any }) {
             {product.name}
           </h3>
           <div className="flex items-baseline gap-2">
-            <span className="text-[1.05rem] font-medium" style={{ color: 'var(--gold)', fontFamily: 'Jost' }}>
+            <span className="text-[1.05rem] font-medium" style={{ color: 'var(--gold)', fontFamily: 'Inter' }}>
               ${price.toFixed(2)}
             </span>
             {compareAt && compareAt > price && (
-              <span className="text-sm line-through" style={{ color: 'var(--cream-dim)', fontFamily: 'Jost' }}>
+              <span className="text-sm line-through" style={{ color: 'var(--cream-dim)', fontFamily: 'Inter' }}>
                 ${compareAt.toFixed(2)}
               </span>
             )}
@@ -239,7 +239,7 @@ export function ProductCard({ product }: { product: any }) {
           <motion.button
             onClick={handleAddToCart}
             className="w-full py-3 text-[0.66rem] tracking-widest uppercase"
-            style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+            style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
             whileHover={{ background: 'var(--gold)', color: 'var(--ink)', borderColor: 'var(--gold)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: MICRO }}

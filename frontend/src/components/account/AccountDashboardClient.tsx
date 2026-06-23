@@ -142,7 +142,7 @@ export function AccountDashboardClient() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm" style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>${Number(order.total).toFixed(2)}</p>
+                      <p className="text-sm" style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>${Number(order.total).toFixed(2)}</p>
                       <StatusBadge status={order.status} />
                     </div>
                   </Link>
@@ -158,7 +158,7 @@ export function AccountDashboardClient() {
                 <div>
                   <p className="text-xs tracking-widest uppercase mb-1" style={{ color: tierColor, letterSpacing: '0.2em' }}>{membership.tier?.name} Member</p>
                   <p className="text-sm" style={{ color: 'var(--cream-dim)' }}>
-                    Annual spend: <b style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>${Number(membership.annualSpendAud).toFixed(2)}</b>
+                    Annual spend: <b style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>${Number(membership.annualSpendAud).toFixed(2)}</b>
                   </p>
                 </div>
                 <Link href="/membership" className="text-xs tracking-widest uppercase" style={{ color: 'var(--gold)', letterSpacing: '0.18em' }}>Details →</Link>

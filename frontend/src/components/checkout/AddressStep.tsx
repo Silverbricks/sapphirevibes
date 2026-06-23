@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -62,7 +62,7 @@ export function AddressStep({ initial, onNext }: Props) {
             <select
               {...register('state')}
               className="w-full px-4 py-3 text-sm outline-none"
-              style={{ background: 'var(--ink)', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Jost' }}
+              style={{ background: 'var(--ink)', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Inter' }}
               onFocus={(e) => (e.target.style.borderColor = 'var(--gold)')}
               onBlur={(e) => (e.target.style.borderColor = 'var(--line)')}
             >
@@ -79,7 +79,7 @@ export function AddressStep({ initial, onNext }: Props) {
           type="submit"
           disabled={isSubmitting}
           className="w-full py-4 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-60"
-          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: isSubmitting ? 'wait' : 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: isSubmitting ? 'wait' : 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
           onMouseEnter={(e) => { if (!isSubmitting) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold)'; }}
         >
@@ -105,7 +105,7 @@ function Input({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
     <input
       {...props}
       className="w-full px-4 py-3 text-sm outline-none"
-      style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Jost' }}
+      style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Inter' }}
       onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'var(--gold)'; props.onFocus?.(e); }}
       onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'var(--line)'; props.onBlur?.(e); }}
     />

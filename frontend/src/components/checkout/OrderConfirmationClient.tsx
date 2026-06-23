@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery } from '@tanstack/react-query';
 import { ordersService } from '@/services/orders.service';
@@ -29,7 +29,7 @@ export function OrderConfirmationClient({ orderId }: { orderId: string }) {
         {order && (
           <p className="text-lg" style={{ color: 'var(--cream-dim)' }}>
             Order{' '}
-            <span style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>{order.orderNumber}</span>
+            <span style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>{order.orderNumber}</span>
           </p>
         )}
       </div>
@@ -54,13 +54,13 @@ export function OrderConfirmationClient({ orderId }: { orderId: string }) {
               {order.items?.map((item: any) => (
                 <div key={item.id} className="flex justify-between text-sm py-1.5">
                   <span style={{ color: 'var(--cream)' }}>{item.productName} × {item.quantity}</span>
-                  <span style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>${Number(item.lineTotal).toFixed(2)}</span>
+                  <span style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>${Number(item.lineTotal).toFixed(2)}</span>
                 </div>
               ))}
             </div>
             <div style={{ borderTop: '1px solid var(--line)', paddingTop: 12 }} className="flex justify-between font-semibold">
               <span style={{ color: 'var(--cream)' }}>Total paid</span>
-              <span style={{ color: 'var(--gold-bright)', fontFamily: 'Jost', fontSize: '1.1rem' }}>${Number(order.total).toFixed(2)} AUD</span>
+              <span style={{ color: 'var(--gold-bright)', fontFamily: 'Inter', fontSize: '1.1rem' }}>${Number(order.total).toFixed(2)} AUD</span>
             </div>
           </div>
         ) : (

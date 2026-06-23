@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
@@ -63,7 +63,7 @@ export function OrdersListClient() {
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-base font-semibold mb-1" style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>
+                <p className="text-base font-semibold mb-1" style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>
                   ${Number(order.total).toFixed(2)} AUD
                 </p>
                 <span
@@ -86,7 +86,7 @@ export function OrdersListClient() {
               key={pg}
               onClick={() => setPage(pg)}
               className="w-9 h-9 text-sm transition-all duration-300"
-              style={{ border: '1px solid var(--line)', background: pg === page ? 'var(--gold)' : 'transparent', color: pg === page ? 'var(--ink)' : 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost' }}
+              style={{ border: '1px solid var(--line)', background: pg === page ? 'var(--gold)' : 'transparent', color: pg === page ? 'var(--ink)' : 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter' }}
             >
               {pg}
             </button>

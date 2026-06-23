@@ -85,7 +85,7 @@ export function RegisterForm() {
         type="submit"
         disabled={loading}
         className="w-full py-4 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-60"
-        style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+        style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
         onMouseEnter={(e) => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold)'; }}
       >
@@ -110,7 +110,7 @@ function Input({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
     <input
       {...props}
       className="w-full px-4 py-3 text-sm outline-none transition-colors duration-300"
-      style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Jost' }}
+      style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream)', fontFamily: 'Inter' }}
       onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'var(--gold)'; props.onFocus?.(e); }}
       onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'var(--line)'; props.onBlur?.(e); }}
     />

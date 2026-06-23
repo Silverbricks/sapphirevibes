@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, ease } from '@/lib/motion';
@@ -75,7 +75,7 @@ export function CustomerReviews() {
                   style={{ background: 'linear-gradient(135deg,var(--gold),#7a6234)' }}
                 />
                 <div>
-                  <b style={{ fontSize: '0.86rem', fontWeight: 500, fontFamily: 'Jost' }}>{r.name}</b>
+                  <b style={{ fontSize: '0.86rem', fontWeight: 500, fontFamily: 'Inter' }}>{r.name}</b>
                   <br />
                   <span style={{ fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--gold)' }}>
                     Verified · {r.location}

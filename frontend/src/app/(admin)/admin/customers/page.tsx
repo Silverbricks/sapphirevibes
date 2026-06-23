@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -62,7 +62,7 @@ export default function AdminCustomersPage() {
                       <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{c.email}</td>
                       <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{new Date(c.createdAt).toLocaleDateString('en-AU')}</td>
                       <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{c._count?.orders ?? 0}</td>
-                      <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Jost' }}>${Number(c.membership?.annualSpendAud ?? 0).toFixed(2)}</td>
+                      <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Inter' }}>${Number(c.membership?.annualSpendAud ?? 0).toFixed(2)}</td>
                       <td style={{ padding: '12px 16px' }}>
                         <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: TIER_COLORS[tier] }}>{c.membership?.tier?.name ?? 'Free'}</span>
                       </td>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -55,7 +55,7 @@ export function CollectionTabs() {
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                fontFamily: 'Jost, sans-serif',
+                fontFamily: 'Inter, sans-serif',
                 color: active === tab.key ? 'var(--cream)' : 'var(--cream-dim)',
                 letterSpacing: '0.18em',
               }}

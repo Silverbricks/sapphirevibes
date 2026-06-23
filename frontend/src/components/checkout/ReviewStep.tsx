@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -59,7 +59,7 @@ export function ReviewStep({ address, paymentIntentId, onBack }: Props) {
               <span style={{ color: 'var(--cream)' }}>
                 {item.name} {item.variantName ? `(${item.variantName})` : ''} × {item.quantity}
               </span>
-              <span style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>
+              <span style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>
                 {item.price > 0 ? `$${(item.price * item.quantity).toFixed(2)}` : '—'}
               </span>
             </div>
@@ -70,11 +70,11 @@ export function ReviewStep({ address, paymentIntentId, onBack }: Props) {
       {/* Total */}
       <Section title="Order total">
         <div className="space-y-2 text-sm">
-          <div className="flex justify-between"><span style={{ color: 'var(--cream-dim)' }}>Subtotal</span><span style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>${subtotal.toFixed(2)}</span></div>
-          <div className="flex justify-between"><span style={{ color: 'var(--cream-dim)' }}>Shipping</span><span style={{ color: shipping === 0 ? 'var(--gold)' : 'var(--cream)', fontFamily: 'Jost' }}>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span></div>
+          <div className="flex justify-between"><span style={{ color: 'var(--cream-dim)' }}>Subtotal</span><span style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>${subtotal.toFixed(2)}</span></div>
+          <div className="flex justify-between"><span style={{ color: 'var(--cream-dim)' }}>Shipping</span><span style={{ color: shipping === 0 ? 'var(--gold)' : 'var(--cream)', fontFamily: 'Inter' }}>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span></div>
           <div className="flex justify-between font-semibold pt-2" style={{ borderTop: '1px solid var(--line)' }}>
             <span style={{ color: 'var(--cream)' }}>Total (AUD)</span>
-            <span style={{ color: 'var(--gold-bright)', fontFamily: 'Jost', fontSize: '1.1rem' }}>${total.toFixed(2)}</span>
+            <span style={{ color: 'var(--gold-bright)', fontFamily: 'Inter', fontSize: '1.1rem' }}>${total.toFixed(2)}</span>
           </div>
         </div>
       </Section>
@@ -88,7 +88,7 @@ export function ReviewStep({ address, paymentIntentId, onBack }: Props) {
         <button
           onClick={onBack}
           className="flex-1 py-4 text-xs tracking-widest uppercase transition-all duration-300"
-          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--line)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream-dim)'; }}
         >
@@ -98,7 +98,7 @@ export function ReviewStep({ address, paymentIntentId, onBack }: Props) {
           onClick={placeOrder}
           disabled={loading}
           className="flex-[2] py-4 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-60"
-          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
           onMouseEnter={(e) => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold)'; }}
         >

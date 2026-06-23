@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ease, STD } from '@/lib/motion';
@@ -99,7 +99,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                           background: active ? 'var(--gold)' : 'transparent',
                           color: active ? 'var(--ink)' : 'var(--cream-dim)',
                           cursor: 'pointer',
-                          fontFamily: 'Jost',
+                          fontFamily: 'Inter',
                           letterSpacing: '0.18em',
                         }}
                       >
@@ -134,7 +134,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                           background: active ? 'rgba(200,164,92,0.08)' : 'transparent',
                           color: active ? 'var(--cream)' : 'var(--cream-dim)',
                           cursor: 'pointer',
-                          fontFamily: 'Jost',
+                          fontFamily: 'Inter',
                         }}
                       >
                         {r.label}
@@ -163,7 +163,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                       value={filters.minPrice ?? ''}
                       onChange={(e) => onFiltersChange({ ...filters, minPrice: e.target.value ? Number(e.target.value) : undefined })}
                       className="w-full px-3 py-2.5 text-sm bg-transparent outline-none"
-                      style={{ color: 'var(--cream)', fontFamily: 'Jost' }}
+                      style={{ color: 'var(--cream)', fontFamily: 'Inter' }}
                     />
                   </div>
                   <span className="text-xs" style={{ color: 'var(--cream-dim)' }}>–</span>
@@ -175,7 +175,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                       value={filters.maxPrice ?? ''}
                       onChange={(e) => onFiltersChange({ ...filters, maxPrice: e.target.value ? Number(e.target.value) : undefined })}
                       className="w-full px-3 py-2.5 text-sm bg-transparent outline-none"
-                      style={{ color: 'var(--cream)', fontFamily: 'Jost' }}
+                      style={{ color: 'var(--cream)', fontFamily: 'Inter' }}
                     />
                   </div>
                 </div>
@@ -192,7 +192,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                   border: '1px solid var(--line)',
                   color: 'var(--cream-dim)',
                   cursor: 'pointer',
-                  fontFamily: 'Jost',
+                  fontFamily: 'Inter',
                   letterSpacing: '0.2em',
                 }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)'; }}
@@ -208,7 +208,7 @@ export function FilterDrawer({ open, filters, onFiltersChange, onClose, onClear 
                   color: 'var(--ink)',
                   border: 'none',
                   cursor: 'pointer',
-                  fontFamily: 'Jost',
+                  fontFamily: 'Inter',
                   letterSpacing: '0.2em',
                 }}
               >

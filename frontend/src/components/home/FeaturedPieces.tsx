@@ -57,31 +57,31 @@ const FALLBACK: ShowcaseProduct[] = [
   },
 ];
 
-const BADGE_COLORS: Record<string, string> = {
-  TRENDING: 'var(--gold)',
-  NEW:      'var(--gold)',
-  HOT:      '#e07b5a',
-  FESTIVAL: '#8a74c8',
-  SALE:     'var(--error)',
+const BADGE_COLORS: Record<string, { bg: string; color: string }> = {
+  TRENDING: { bg: 'var(--gold)',    color: '#FFFFFF' },
+  NEW:      { bg: 'var(--gold)',    color: '#FFFFFF' },
+  HOT:      { bg: '#D97040',        color: '#FFFFFF' },
+  FESTIVAL: { bg: '#8A74C8',        color: '#FFFFFF' },
+  SALE:     { bg: 'var(--error)',   color: '#FFFFFF' },
 };
 
 function ShowcaseCard({ p }: { p: ShowcaseProduct }) {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered]       = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
+
+  const badge = p.badge ? BADGE_COLORS[p.badge] : null;
 
   return (
     <div
-      className="group"
       style={{
-        background: 'var(--ink-soft)',
-        border: '1px solid transparent',
-        borderRadius: 4,
+        background: '#FFFFFF',
+        border: '1px solid',
+        borderColor: hovered ? 'var(--border-gold)' : 'rgba(0,0,0,0.07)',
         overflow: 'hidden',
         cursor: 'pointer',
-        transition: 'transform 0.4s cubic-bezier(.2,.7,.2,1), border-color 0.4s, box-shadow 0.4s',
+        transition: 'transform 0.4s cubic-bezier(.2,.7,.2,1), border-color 0.35s, box-shadow 0.35s',
         transform: hovered ? 'translateY(-6px)' : 'none',
-        borderColor: hovered ? 'var(--border-gold)' : 'transparent',
-        boxShadow: hovered ? '0 24px 50px rgba(200,164,92,0.12)' : 'none',
+        boxShadow: hovered ? '0 20px 50px rgba(180,145,85,0.12)' : '0 2px 12px rgba(0,0,0,0.05)',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -95,7 +95,7 @@ function ShowcaseCard({ p }: { p: ShowcaseProduct }) {
         >
           <Image src={p.img} alt={p.name} fill sizes="(max-width: 640px) 50vw, 33vw" className="object-cover" />
         </div>
-        {/* Alt image */}
+        {/* Alt image (hover) */}
         <div
           className="absolute inset-0 transition-opacity duration-500"
           style={{ opacity: hovered ? 1 : 0 }}
@@ -104,28 +104,33 @@ function ShowcaseCard({ p }: { p: ShowcaseProduct }) {
         </div>
 
         {/* Badge */}
-        {p.badge && (
+        {badge && (
           <span
             className="absolute top-3 left-3 z-10 text-[0.6rem] font-semibold tracking-[0.14em] uppercase px-2.5 py-1"
-            style={{ background: BADGE_COLORS[p.badge] ?? 'var(--gold)', color: 'var(--ink)', borderRadius: 2 }}
+            style={{ background: badge.bg, color: badge.color }}
           >
             {p.badge}
           </span>
         )}
 
-        {/* Wishlist */}
+        {/* Wishlist button */}
         <button
           className="absolute top-2.5 right-2.5 z-10 flex items-center justify-center transition-all duration-300"
           style={{
             width: 36, height: 36, borderRadius: '50%',
-            border: '1px solid var(--border-gold)',
-            background: wishlisted ? 'var(--gold)' : 'rgba(14,17,22,0.5)',
-            backdropFilter: 'blur(6px)',
+            border: `1px solid ${wishlisted ? 'var(--gold)' : 'rgba(0,0,0,0.12)'}`,
+            background: wishlisted ? 'var(--gold)' : 'rgba(255,255,255,0.9)',
+            backdropFilter: 'blur(4px)',
           }}
           onClick={(e) => { e.preventDefault(); setWishlisted(!wishlisted); }}
           aria-label="Add to wishlist"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill={wishlisted ? 'var(--ink)' : 'none'} stroke={wishlisted ? 'var(--ink)' : 'var(--cream)'} strokeWidth="1.6">
+          <svg
+            width="14" height="14" viewBox="0 0 24 24"
+            fill={wishlisted ? '#FFFFFF' : 'none'}
+            stroke={wishlisted ? '#FFFFFF' : '#555555'}
+            strokeWidth="1.6"
+          >
             <path d="M12 21s-7-4.6-9.3-9C1 8.5 2.8 5 6.3 5 8.4 5 9.8 6.2 12 8.5 14.2 6.2 15.6 5 17.7 5c3.5 0 5.3 3.5 3.6 7C19 16.4 12 21 12 21z" />
           </svg>
         </button>
@@ -134,8 +139,9 @@ function ShowcaseCard({ p }: { p: ShowcaseProduct }) {
         <div
           className="absolute bottom-0 left-0 right-0 z-10 text-center py-3 transition-all duration-300"
           style={{
-            fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#fff',
-            background: 'linear-gradient(transparent, rgba(8,10,14,0.9))',
+            fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase',
+            color: '#FFFFFF',
+            background: 'linear-gradient(transparent, rgba(0,0,0,0.55))',
             opacity: hovered ? 1 : 0,
             transform: hovered ? 'none' : 'translateY(8px)',
           }}
@@ -145,15 +151,31 @@ function ShowcaseCard({ p }: { p: ShowcaseProduct }) {
       </Link>
 
       {/* Card body */}
-      <div className="px-4 pt-3 pb-5">
-        <p className="text-[0.66rem] tracking-[0.18em] uppercase mb-1" style={{ color: 'var(--cream-dim)' }}>
+      <div className="px-4 pt-3.5 pb-5">
+        <p
+          className="text-[0.65rem] tracking-[0.18em] uppercase mb-1.5"
+          style={{ color: 'var(--cream-dim)' }}
+        >
           {p.cat}
         </p>
-        <p className="font-serif text-[1.15rem] mb-2" style={{ color: 'var(--cream)' }}>{p.name}</p>
+        <p
+          className="font-serif text-[1.1rem] mb-2.5 leading-snug"
+          style={{ color: 'var(--cream)' }}
+        >
+          {p.name}
+        </p>
         <div className="flex items-baseline gap-2">
-          <span className="font-serif text-[1.2rem]" style={{ color: 'var(--gold)' }}>${p.price}</span>
+          <span
+            className="font-serif text-[1.15rem] font-medium"
+            style={{ color: 'var(--gold)' }}
+          >
+            ${p.price}
+          </span>
           {p.compare && (
-            <span className="text-[0.88rem]" style={{ color: 'var(--cream-dim)', textDecoration: 'line-through' }}>
+            <span
+              className="text-[0.85rem]"
+              style={{ color: 'var(--cream-dim)', textDecoration: 'line-through' }}
+            >
               ${p.compare}
             </span>
           )}
@@ -184,22 +206,24 @@ export function FeaturedPieces() {
           </div>
           <Link
             href="/products"
-            className="text-sm tracking-wide transition-colors duration-300 hover:opacity-80 hidden sm:block"
+            className="hidden sm:block text-sm tracking-wide transition-colors duration-300"
             style={{ color: 'var(--gold)' }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--muted-gold)')}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--gold)')}
           >
             View all →
           </Link>
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-2 gap-4 lg:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5">
           {products.map((p) => (
             <ShowcaseCard key={p.id} p={p} />
           ))}
         </div>
 
         <div className="mt-8 text-center sm:hidden">
-          <Link href="/products" className="btn-ghost text-[0.75rem] px-8 py-3">
+          <Link href="/products" className="btn-ghost text-[0.72rem] px-8 py-3">
             View all products →
           </Link>
         </div>

@@ -25,7 +25,7 @@ async function fetchProducts() {
 const CUSTOM_TOOLTIP_STYLE = {
   contentStyle: { background: 'var(--ink-soft)', border: '1px solid var(--line)', borderRadius: 0 },
   labelStyle: { color: 'var(--cream-dim)', fontSize: '0.72rem' },
-  itemStyle: { color: 'var(--gold-bright)', fontFamily: 'Jost' },
+  itemStyle: { color: 'var(--gold-bright)', fontFamily: 'Inter' },
 };
 
 export function AdminDashboardClient() {
@@ -72,8 +72,8 @@ export function AdminDashboardClient() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--line)" />
-                <XAxis dataKey="date" stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Jost' }} tickFormatter={(v) => v.slice(5)} />
-                <YAxis stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Jost' }} tickFormatter={(v) => `$${v}`} />
+                <XAxis dataKey="date" stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Inter' }} tickFormatter={(v) => v.slice(5)} />
+                <YAxis stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Inter' }} tickFormatter={(v) => `$${v}`} />
                 <Tooltip {...CUSTOM_TOOLTIP_STYLE} formatter={(v: any) => [`$${Number(v).toFixed(2)}`, 'Revenue']} />
                 <Area type="monotone" dataKey="revenue" stroke="#c8a45c" strokeWidth={2} fill="url(#goldGrad)" />
               </AreaChart>
@@ -90,8 +90,8 @@ export function AdminDashboardClient() {
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={products.slice(0, 6)} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--line)" horizontal={false} />
-                <XAxis type="number" stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Jost' }} tickFormatter={(v) => `$${v}`} />
-                <YAxis type="category" dataKey="productName" stroke="var(--cream-dim)" tick={{ fontSize: 9, fontFamily: 'Jost' }} width={80} tickFormatter={(v: string) => v.length > 14 ? v.substring(0, 14) + '…' : v} />
+                <XAxis type="number" stroke="var(--cream-dim)" tick={{ fontSize: 10, fontFamily: 'Inter' }} tickFormatter={(v) => `$${v}`} />
+                <YAxis type="category" dataKey="productName" stroke="var(--cream-dim)" tick={{ fontSize: 9, fontFamily: 'Inter' }} width={80} tickFormatter={(v: string) => v.length > 14 ? v.substring(0, 14) + '…' : v} />
                 <Tooltip {...CUSTOM_TOOLTIP_STYLE} formatter={(v: any) => [`$${Number(v).toFixed(2)}`, 'Revenue']} />
                 <Bar dataKey="_sum.lineTotal" fill="#c8a45c" radius={[0, 2, 2, 0]} />
               </BarChart>

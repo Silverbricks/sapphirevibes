@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 
@@ -36,7 +36,7 @@ export default function AdminPromotionsPage() {
           <tbody>
             {promos.map(pr => (
               <tr key={pr.code} style={{ borderBottom: '1px solid var(--line)' }}>
-                <td style={{ padding: '12px 16px', color: 'var(--cream)', fontWeight: 600, fontFamily: 'Jost', letterSpacing: '0.1em' }}>{pr.code}</td>
+                <td style={{ padding: '12px 16px', color: 'var(--cream)', fontWeight: 600, fontFamily: 'Inter', letterSpacing: '0.1em' }}>{pr.code}</td>
                 <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{pr.type}</td>
                 <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{pr.usage}</td>
                 <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{pr.limit ?? '∞'}</td>

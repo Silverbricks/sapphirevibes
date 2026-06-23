@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery } from '@tanstack/react-query';
 import adminService from '@/services/admin.service';
@@ -50,7 +50,7 @@ export default function AdminSubscriptionsPage() {
                   <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{s.plan?.name ?? '—'}</td>
                   <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{s.startedAt ? new Date(s.startedAt).toLocaleDateString('en-AU') : '—'}</td>
                   <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{s.nextBillingAt ? new Date(s.nextBillingAt).toLocaleDateString('en-AU') : '—'}</td>
-                  <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Jost' }}>${Number(s.plan?.priceAud ?? 0).toFixed(2)}/mo</td>
+                  <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Inter' }}>${Number(s.plan?.priceAud ?? 0).toFixed(2)}/mo</td>
                   <td style={{ padding: '12px 16px' }}>
                     <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: STATUS_COLORS[s.status] ?? 'var(--cream-dim)' }}>{s.status}</span>
                   </td>

@@ -54,7 +54,7 @@ export function CheckoutClient() {
                       background: i < step ? 'var(--gold)' : i === step ? 'transparent' : 'transparent',
                       border: i <= step ? '2px solid var(--gold)' : '1.5px solid var(--line)',
                       color: i < step ? 'var(--ink)' : i === step ? 'var(--gold)' : 'var(--cream-dim)',
-                      fontFamily: 'Jost',
+                      fontFamily: 'Inter',
                     }}
                   >
                     {i < step ? (
@@ -155,7 +155,7 @@ export function CheckoutClient() {
                       {item.variantName && <p className="text-xs" style={{ color: 'var(--cream-dim)' }}>{item.variantName}</p>}
                       <p className="text-xs" style={{ color: 'var(--cream-dim)' }}>Qty {item.quantity}</p>
                     </div>
-                    <span className="text-sm shrink-0" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>
+                    <span className="text-sm shrink-0" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>
                       {item.price > 0 ? `$${(item.price * item.quantity).toFixed(2)}` : '—'}
                     </span>
                   </div>
@@ -166,17 +166,17 @@ export function CheckoutClient() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span style={{ color: 'var(--cream-dim)' }}>Subtotal</span>
-                    <span style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>${subtotal.toFixed(2)}</span>
+                    <span style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>${subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span style={{ color: 'var(--cream-dim)' }}>Shipping</span>
-                    <span style={{ color: shipping === 0 ? 'var(--success)' : 'var(--cream)', fontFamily: 'Jost' }}>
+                    <span style={{ color: shipping === 0 ? 'var(--success)' : 'var(--cream)', fontFamily: 'Inter' }}>
                       {shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}
                     </span>
                   </div>
                   <div className="flex justify-between font-semibold pt-3 mt-2" style={{ borderTop: '1px solid var(--line)' }}>
                     <span style={{ color: 'var(--cream)' }}>Total (AUD)</span>
-                    <span style={{ color: 'var(--gold-bright)', fontFamily: 'Jost', fontSize: '1.1rem' }}>${total.toFixed(2)}</span>
+                    <span style={{ color: 'var(--gold-bright)', fontFamily: 'Inter', fontSize: '1.1rem' }}>${total.toFixed(2)}</span>
                   </div>
                   <p className="text-xs pt-1" style={{ color: 'var(--cream-dim)' }}>GST included · Prices in AUD</p>
                 </div>

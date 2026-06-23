@@ -49,12 +49,15 @@ function TrustIcon({ type }: { type: string }) {
 
 function TrustItem({ item }: { item: typeof ITEMS[0] }) {
   return (
-    <span className="inline-flex items-center gap-2.5 px-6 whitespace-nowrap" style={{ color: 'var(--cream-dim)' }}>
+    <span
+      className="inline-flex items-center gap-2.5 px-6 whitespace-nowrap"
+      style={{ color: 'var(--cream-dim)' }}
+    >
       <TrustIcon type={item.icon} />
-      <span className="text-[0.72rem] tracking-[0.18em] uppercase" style={{ letterSpacing: '0.18em' }}>
+      <span className="text-[0.7rem] tracking-[0.18em] uppercase">
         {item.text}
       </span>
-      <span className="text-[0.6rem] ml-4" style={{ color: 'var(--border-gold)', opacity: 0.8 }}>✦</span>
+      <span className="text-[0.55rem] ml-3" style={{ color: 'var(--border-gold)' }}>✦</span>
     </span>
   );
 }
@@ -66,9 +69,9 @@ export function TrustBar() {
     <div
       className="overflow-hidden"
       style={{
-        background: 'var(--luxury-surface)',
-        borderTop: '1px solid var(--border-gold)',
-        borderBottom: '1px solid var(--border-gold)',
+        background: '#FFFFFF',
+        borderTop: '1px solid rgba(0,0,0,0.07)',
+        borderBottom: '1px solid rgba(0,0,0,0.07)',
         height: 52,
         display: 'flex',
         alignItems: 'center',

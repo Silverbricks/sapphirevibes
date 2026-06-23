@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -43,7 +43,7 @@ export function WishlistClient() {
               </Link>
               <div className="p-4">
                 <p className="font-serif text-sm mb-1" style={{ color: 'var(--cream)' }}>{item.name}</p>
-                <p className="text-sm mb-4" style={{ color: 'var(--gold)', fontFamily: 'Jost' }}>${item.price.toFixed(2)}</p>
+                <p className="text-sm mb-4" style={{ color: 'var(--gold)', fontFamily: 'Inter' }}>${item.price.toFixed(2)}</p>
                 <div className="flex gap-2">
                   <button
                     onClick={() => moveToCart(item)}

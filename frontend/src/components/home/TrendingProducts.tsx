@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useCartStore } from '@/store/cartStore';
@@ -118,7 +118,7 @@ export function TrendingProducts() {
                   </h3>
                 </Link>
                 <StarRating rating={p.rating} />
-                <div className="text-[1.05rem] mt-1" style={{ color: 'var(--gold-bright)', fontFamily: 'Jost' }}>
+                <div className="text-[1.05rem] mt-1" style={{ color: 'var(--gold-bright)', fontFamily: 'Inter' }}>
                   ${p.price.toFixed(2)}
                 </div>
                 <div className="text-[0.62rem] mt-0.5" style={{ color: 'var(--cream-dim)', letterSpacing: '0.04em' }}>
@@ -130,7 +130,7 @@ export function TrendingProducts() {
                     background: 'transparent',
                     border: '1px solid var(--line)',
                     color: 'var(--cream)',
-                    fontFamily: 'Jost',
+                    fontFamily: 'Inter',
                     letterSpacing: '0.2em',
                     cursor: 'pointer',
                   }}

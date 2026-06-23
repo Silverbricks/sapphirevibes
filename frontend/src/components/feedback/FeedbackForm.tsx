@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -82,7 +82,7 @@ export function FeedbackForm({ targetId, onSuccess, compact }: Props) {
             transition={{ duration: 0.4, delay: 0.3, ease }}
           />
         </svg>
-        <p style={{ color: 'var(--cream)', fontFamily: 'Jost, sans-serif', fontSize: '0.9rem' }}>Thank you for your feedback!</p>
+        <p style={{ color: 'var(--cream)', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Thank you for your feedback!</p>
         <button
           onClick={() => setStatus('idle')}
           style={{ marginTop: 12, background: 'none', border: 'none', color: 'var(--gold)', cursor: 'pointer', fontSize: '0.78rem', letterSpacing: '0.1em', textDecoration: 'underline' }}
@@ -94,7 +94,7 @@ export function FeedbackForm({ targetId, onSuccess, compact }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ fontFamily: 'Jost, sans-serif' }}>
+    <form onSubmit={handleSubmit} style={{ fontFamily: 'Inter, sans-serif' }}>
       {/* Star rating */}
       <div style={{ marginBottom: 16 }}>
         <div style={{ fontSize: '0.74rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--cream-dim)', marginBottom: 8 }}>
@@ -150,7 +150,7 @@ export function FeedbackForm({ targetId, onSuccess, compact }: Props) {
             style={{
               width: '100%', padding: '10px 12px', background: 'var(--ink)', border: '1px solid var(--line)',
               color: 'var(--cream)', fontSize: '0.88rem', outline: 'none', resize: 'vertical',
-              minHeight: 80, boxSizing: 'border-box', fontFamily: 'Jost, sans-serif',
+              minHeight: 80, boxSizing: 'border-box', fontFamily: 'Inter, sans-serif',
             }}
             onFocus={e => (e.target.style.borderColor = 'rgba(200,164,92,.5)')}
             onBlur={e => (e.target.style.borderColor = 'var(--line)')}
@@ -187,7 +187,7 @@ export function FeedbackForm({ targetId, onSuccess, compact }: Props) {
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
           fontWeight: 600,
-          fontFamily: 'Jost, sans-serif',
+          fontFamily: 'Inter, sans-serif',
           transition: 'background 0.2s',
           display: 'flex',
           alignItems: 'center',

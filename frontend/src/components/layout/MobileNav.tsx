@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -60,7 +60,7 @@ export function MobileNav() {
     <nav
       className="md:hidden fixed bottom-0 left-0 right-0 z-50 pb-safe"
       style={{
-        background: 'rgba(14,17,22,0.97)',
+        background: 'rgba(255,255,255,0.97)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderTop: '1px solid var(--line)',
@@ -94,7 +94,7 @@ export function MobileNav() {
                       <motion.span
                         key="badge"
                         className="absolute -top-[5px] -right-[7px] min-w-[14px] h-[14px] rounded-full text-[0.48rem] font-semibold flex items-center justify-center"
-                        style={{ background: 'var(--gold)', color: 'var(--ink)', fontFamily: 'Jost' }}
+                        style={{ background: 'var(--gold)', color: 'var(--ink)', fontFamily: 'Inter' }}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}

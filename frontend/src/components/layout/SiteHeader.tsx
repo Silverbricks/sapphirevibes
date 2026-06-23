@@ -16,8 +16,8 @@ const NAV = [
 ];
 
 export function SiteHeader() {
-  const itemCount             = useCartStore((s) => s.itemCount);
-  const { openCart }          = useUIStore();
+  const itemCount                   = useCartStore((s) => s.itemCount);
+  const { openCart }                = useUIStore();
   const [scrolled, setScrolled]     = useState(false);
   const [badgePop, setBadgePop]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,12 +43,14 @@ export function SiteHeader() {
       <motion.header
         className="fixed top-0 left-0 right-0 z-[100]"
         animate={{
-          background: scrolled ? 'rgba(14,17,22,0.72)' : 'rgba(14,17,22,0)',
+          background: scrolled
+            ? 'rgba(255, 255, 255, 0.97)'
+            : 'rgba(255, 255, 255, 0)',
           backdropFilter: scrolled ? 'blur(18px)' : 'blur(0px)',
-          borderBottomColor: scrolled ? 'var(--line)' : 'transparent',
-          boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.45)' : 'none',
+          borderBottomColor: scrolled ? 'rgba(0,0,0,0.07)' : 'transparent',
+          boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.06)' : 'none',
         }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
         style={{
           borderBottom: '1px solid transparent',
           WebkitBackdropFilter: scrolled ? 'blur(18px)' : 'blur(0px)',
@@ -56,7 +58,7 @@ export function SiteHeader() {
       >
         <nav className="container-page flex items-center justify-between h-[66px]">
 
-          {/* ── Brand ──────────────────────────── */}
+          {/* ── Brand ────────────────────────── */}
           <Link
             href="/"
             className="font-serif text-[1.45rem] font-semibold tracking-wide shrink-0"
@@ -65,15 +67,17 @@ export function SiteHeader() {
             Sapphire<span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Vibes</span>
           </Link>
 
-          {/* ── Nav links (desktop) ────────────── */}
+          {/* ── Nav links (desktop) ──────────── */}
           <ul className="hidden md:flex gap-9 list-none absolute left-1/2 -translate-x-1/2">
             {NAV.map(({ label, href }) => {
-              const active = pathname === href || (href !== '/' && pathname.startsWith(href.split('?')[0]));
+              const active =
+                pathname === href ||
+                (href !== '/' && pathname.startsWith(href.split('?')[0]));
               return (
                 <li key={label}>
                   <Link
                     href={href}
-                    className="relative text-[0.8rem] tracking-[0.14em] uppercase transition-colors duration-300"
+                    className="relative text-[0.78rem] tracking-[0.14em] uppercase transition-colors duration-300"
                     style={{ color: active ? 'var(--cream)' : 'var(--cream-dim)' }}
                   >
                     <motion.span className="relative" whileHover="hover" initial="rest">
@@ -91,15 +95,17 @@ export function SiteHeader() {
             })}
           </ul>
 
-          {/* ── Icon row ───────────────────────── */}
-          <div className="flex items-center gap-4">
+          {/* ── Icon row ─────────────────────── */}
+          <div className="flex items-center gap-3">
 
-            {/* Account (desktop) */}
+            {/* Account */}
             <Link
               href="/account"
               aria-label="Account"
-              className="hidden md:flex items-center justify-center transition-colors duration-300 hover:text-[var(--gold)]"
+              className="hidden md:flex items-center justify-center transition-colors duration-300"
               style={{ color: 'var(--cream-dim)', width: 36, height: 36 }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--gold)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream-dim)')}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <circle cx="12" cy="8" r="4" />
@@ -110,9 +116,11 @@ export function SiteHeader() {
             {/* Cart */}
             <button
               onClick={openCart}
-              className="relative flex items-center justify-center transition-colors duration-300 hover:text-[var(--gold)]"
+              className="relative flex items-center justify-center transition-colors duration-300"
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--cream-dim)', minWidth: 44, minHeight: 44 }}
               aria-label="Open cart"
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--gold)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream-dim)')}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -124,7 +132,7 @@ export function SiteHeader() {
                   <motion.span
                     key="badge"
                     className="absolute -top-[7px] -right-[9px] min-w-[16px] h-[16px] rounded-full text-[0.52rem] font-semibold flex items-center justify-center px-[3px]"
-                    style={{ background: 'var(--gold)', color: 'var(--ink)', fontFamily: 'Jost' }}
+                    style={{ background: 'var(--gold)', color: '#FFFFFF' }}
                     initial={{ scale: 0 }}
                     animate={{ scale: badgePop ? [1, 1.35, 1] : 1 }}
                     exit={{ scale: 0 }}
@@ -138,7 +146,7 @@ export function SiteHeader() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex items-center justify-center transition-colors duration-300 hover:text-[var(--gold)]"
+              className="md:hidden flex items-center justify-center"
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--cream)', minWidth: 44, minHeight: 44 }}
               aria-label="Open menu"
               onClick={() => setMobileOpen(true)}
@@ -151,7 +159,7 @@ export function SiteHeader() {
         </nav>
       </motion.header>
 
-      {/* ── Mobile Nav Drawer ──────────────────── */}
+      {/* ── Mobile Drawer ─────────────────────── */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -168,8 +176,9 @@ export function SiteHeader() {
               className="fixed top-0 right-0 bottom-0 z-[60] flex flex-col"
               style={{
                 width: 'min(300px, 85vw)',
-                background: 'var(--charcoal)',
-                borderLeft: '1px solid var(--line)',
+                background: '#FFFFFF',
+                borderLeft: '1px solid rgba(0,0,0,0.08)',
+                boxShadow: '-8px 0 40px rgba(0,0,0,0.08)',
               }}
               variants={slideInRight}
               initial="hidden"
@@ -177,7 +186,10 @@ export function SiteHeader() {
               exit="exit"
               transition={{ duration: 0.32, ease }}
             >
-              <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: '1px solid var(--line)' }}>
+              <div
+                className="flex items-center justify-between px-6 py-5"
+                style={{ borderBottom: '1px solid rgba(0,0,0,0.08)' }}
+              >
                 <Link href="/" className="font-serif text-lg font-semibold" style={{ color: 'var(--cream)' }}>
                   Sapphire<span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Vibes</span>
                 </Link>
@@ -199,44 +211,56 @@ export function SiteHeader() {
                         href={href}
                         className="font-serif text-2xl font-medium block transition-colors duration-200"
                         style={{ color: 'var(--cream)' }}
-                        onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--gold)')}
-                        onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--cream)')}
+                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--gold)')}
+                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream)')}
                       >
                         {label}
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-10 pt-8 space-y-4" style={{ borderTop: '1px solid var(--line)' }}>
-                  <Link href="/account" className="flex items-center gap-3 text-sm transition-colors duration-200" style={{ color: 'var(--cream-dim)' }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--cream)')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--cream-dim)')}
+
+                <div className="mt-10 pt-8 space-y-4" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                  <Link
+                    href="/account"
+                    className="flex items-center gap-3 text-sm transition-colors duration-200"
+                    style={{ color: 'var(--cream-dim)' }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream-dim)')}
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 21a8 8 0 0 1 16 0" />
+                    </svg>
                     My Account
                   </Link>
                   <button
                     onClick={openCart}
                     className="flex items-center gap-3 text-sm w-full text-left transition-colors duration-200"
                     style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--cream-dim)' }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)')}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = 'var(--cream-dim)')}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--cream-dim)')}
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                      <path d="M3 6h18" />
+                      <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
                     Cart {itemCount > 0 && `(${itemCount})`}
                   </button>
                 </div>
               </div>
 
-              <div className="px-6 py-5" style={{ borderTop: '1px solid var(--line)' }}>
-                <p className="text-xs" style={{ color: 'var(--cream-dim)' }}>Free AU shipping over $150 · Afterpay available</p>
+              <div className="px-6 py-5" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                <p className="text-xs" style={{ color: 'var(--cream-dim)' }}>
+                  Free AU shipping over $150 · Afterpay available
+                </p>
               </div>
             </motion.nav>
           </>
         )}
       </AnimatePresence>
 
-      {/* Cart drawer */}
       <CartDrawer />
     </>
   );

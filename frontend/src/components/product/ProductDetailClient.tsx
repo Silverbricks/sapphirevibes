@@ -229,7 +229,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
               {currentImage && (
                 <div
                   className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2.5 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'rgba(14,17,22,0.75)', border: '1px solid var(--line)' }}
+                  style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(255,255,255,0.15)' }}
                 >
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--cream-dim)" strokeWidth="1.5">
                     <circle cx="11" cy="11" r="7" />
@@ -279,11 +279,11 @@ export function ProductDetailClient({ slug }: { slug: string }) {
 
           {/* Price */}
           <div className="flex items-baseline gap-3 mb-1">
-            <span className="text-2xl font-medium" style={{ color: 'var(--gold)', fontFamily: 'Jost' }}>
+            <span className="text-2xl font-medium" style={{ color: 'var(--gold)', fontFamily: 'Inter' }}>
               ${price.toFixed(2)}
             </span>
             {compareAt && compareAt > price && (
-              <span className="text-lg line-through" style={{ color: 'var(--cream-dim)', fontFamily: 'Jost' }}>
+              <span className="text-lg line-through" style={{ color: 'var(--cream-dim)', fontFamily: 'Inter' }}>
                 ${compareAt.toFixed(2)}
               </span>
             )}
@@ -309,7 +309,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
                       background: i === selectedVariantIdx ? 'var(--gold)' : 'transparent',
                       color: i === selectedVariantIdx ? 'var(--ink)' : 'var(--cream-dim)',
                       cursor: 'pointer',
-                      fontFamily: 'Jost',
+                      fontFamily: 'Inter',
                     }}
                   >
                     {v.size ?? v.color ?? v.name}
@@ -329,7 +329,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
                 onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = 'var(--gold)')}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)')}
               >−</button>
-              <span className="w-11 text-center text-sm py-3" style={{ color: 'var(--cream)', fontFamily: 'Jost' }}>{qty}</span>
+              <span className="w-11 text-center text-sm py-3" style={{ color: 'var(--cream)', fontFamily: 'Inter' }}>{qty}</span>
               <button
                 onClick={() => setQty((q) => Math.min(q + 1, availableQty))}
                 className="w-11 h-full flex items-center justify-center text-lg transition-colors duration-200"
@@ -348,7 +348,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
                 color: inStock ? 'var(--ink)' : 'var(--cream-dim)',
                 border: 'none',
                 cursor: inStock ? 'pointer' : 'not-allowed',
-                fontFamily: 'Jost',
+                fontFamily: 'Inter',
                 letterSpacing: '0.22em',
               }}
               whileHover={inStock ? { filter: 'brightness(1.1)', y: -1 } : {}}
@@ -392,7 +392,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
                 key={platform}
                 onClick={() => share(platform)}
                 className="text-xs px-3 py-2 transition-all duration-200"
-                style={{ border: '1px solid var(--line)', background: 'transparent', color, cursor: 'pointer', fontFamily: 'Jost', minHeight: 36 }}
+                style={{ border: '1px solid var(--line)', background: 'transparent', color, cursor: 'pointer', fontFamily: 'Inter', minHeight: 36 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.borderColor = color)}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--line)')}
               >
@@ -467,7 +467,7 @@ export function ProductDetailClient({ slug }: { slug: string }) {
         {zoomOpen && currentImage && (
           <motion.div
             className="fixed inset-0 z-[200] flex items-center justify-center"
-            style={{ background: 'rgba(14,17,22,0.96)' }}
+            style={{ background: 'rgba(0,0,0,0.92)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

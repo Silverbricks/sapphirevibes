@@ -82,7 +82,7 @@ export function ProductListingClient({ initialQuery = {} }: Props) {
             background: activeFilterCount > 0 ? 'rgba(200,164,92,0.06)' : 'transparent',
             color: activeFilterCount > 0 ? 'var(--cream)' : 'var(--cream-dim)',
             cursor: 'pointer',
-            fontFamily: 'Jost',
+            fontFamily: 'Inter',
             letterSpacing: '0.18em',
           }}
           onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'}
@@ -106,7 +106,7 @@ export function ProductListingClient({ initialQuery = {} }: Props) {
               value={sort}
               onChange={(e) => { setSort(e.target.value); setPage(1); }}
               className="text-xs px-4 py-3 outline-none"
-              style={{ background: 'var(--ink-soft)', color: 'var(--cream)', fontFamily: 'Jost', cursor: 'pointer', letterSpacing: '0.06em' }}
+              style={{ background: 'var(--ink-soft)', color: 'var(--cream)', fontFamily: 'Inter', cursor: 'pointer', letterSpacing: '0.06em' }}
             >
               {SORTS.map((s) => (
                 <option key={s.value} value={s.value}>{s.label}</option>
@@ -123,7 +123,7 @@ export function ProductListingClient({ initialQuery = {} }: Props) {
             <button
               onClick={() => setFilters((f) => ({ ...f, badge: undefined }))}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs transition-all duration-200"
-              style={{ background: 'rgba(200,164,92,0.1)', border: '1px solid var(--gold)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'Jost' }}
+              style={{ background: 'rgba(200,164,92,0.1)', border: '1px solid var(--gold)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'Inter' }}
             >
               {filters.badge}
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -135,7 +135,7 @@ export function ProductListingClient({ initialQuery = {} }: Props) {
             <button
               onClick={() => setFilters((f) => ({ ...f, minPrice: undefined, maxPrice: undefined }))}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs transition-all duration-200"
-              style={{ background: 'rgba(200,164,92,0.1)', border: '1px solid var(--gold)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'Jost' }}
+              style={{ background: 'rgba(200,164,92,0.1)', border: '1px solid var(--gold)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'Inter' }}
             >
               ${filters.minPrice ?? 0} – ${filters.maxPrice ?? '∞'}
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -207,7 +207,7 @@ export function ProductListingClient({ initialQuery = {} }: Props) {
                   background: pg === page ? 'var(--gold)' : 'transparent',
                   color: pg === page ? 'var(--ink)' : 'var(--cream-dim)',
                   cursor: 'pointer',
-                  fontFamily: 'Jost',
+                  fontFamily: 'Inter',
                 }}
               >
                 {pg}

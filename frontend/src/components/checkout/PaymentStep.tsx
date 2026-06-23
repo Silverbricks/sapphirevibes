@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
@@ -63,7 +63,7 @@ function StripeForm({ onBack, onNext }: { onBack: () => void; onNext: (id: strin
           type="button"
           onClick={onBack}
           className="flex-1 py-4 text-xs tracking-widest uppercase transition-all duration-300"
-          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+          style={{ background: 'transparent', border: '1px solid var(--line)', color: 'var(--cream-dim)', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--line)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--cream-dim)'; }}
         >
@@ -73,7 +73,7 @@ function StripeForm({ onBack, onNext }: { onBack: () => void; onNext: (id: strin
           type="submit"
           disabled={loading || !stripe}
           className="flex-[2] py-4 text-xs tracking-widest uppercase font-semibold transition-all duration-300 disabled:opacity-60"
-          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Jost', letterSpacing: '0.22em' }}
+          style={{ background: 'var(--gold)', color: 'var(--ink)', border: 'none', cursor: 'pointer', fontFamily: 'Inter', letterSpacing: '0.22em' }}
           onMouseEnter={(e) => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold-bright)'; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'var(--gold)'; }}
         >
@@ -139,7 +139,7 @@ export function PaymentStep({ total, onBack, onNext }: Props) {
       )}
 
       {clientSecret && (
-        <Elements stripe={stripePromise} options={{ clientSecret, appearance: { theme: 'night', variables: { colorPrimary: '#c8a45c', colorBackground: '#151a22', colorText: '#f4efe6', borderRadius: '0px', fontFamily: 'Jost' } } }}>
+        <Elements stripe={stripePromise} options={{ clientSecret, appearance: { theme: 'stripe', variables: { colorPrimary: '#B49155', colorBackground: '#FFFFFF', colorText: '#111111', colorDanger: '#B04040', borderRadius: '0px', fontFamily: 'Inter', spacingUnit: '4px' } } }}>
           <StripeForm onBack={onBack} onNext={onNext} />
         </Elements>
       )}

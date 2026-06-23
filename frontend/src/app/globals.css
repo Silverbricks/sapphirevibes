@@ -2,50 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root,
-[data-theme="dark"] {
-  --ink: #0e1116;
-  --ink-soft: #151a22;
-  --panel: #1b212b;
-  --gold: #c8a45c;
-  --gold-bright: #e4c884;
-  --soft-gold: #d8b87a;
-  --muted-gold: #a8874f;
-  --cream: #f4efe6;
-  --cream-dim: #bfb8a9;
-  --charcoal: #171c23;
-  --luxury-surface: #131821;
-  --line: rgba(200, 164, 92, 0.22);
-  --border-gold: rgba(200, 164, 92, 0.15);
-  --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8);
-  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
-  --shadow-lift: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
-  --success: #5e9c76;
-  --error: #b45d5d;
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — White + Gold Luxury
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  /* ── Backgrounds (formerly dark, now light) ─────────────── */
+  --ink:             #FFFFFF;      /* section/page backgrounds */
+  --ink-soft:        #F8F5F1;      /* elevated surface */
+  --panel:           #F2EDE5;      /* panels, cards */
+  --charcoal:        #FAFAF8;      /* body background */
+  --luxury-surface:  #F5F1EB;      /* warm off-white sections */
+
+  /* ── Text ────────────────────────────────────────────────── */
+  --cream:           #111111;      /* primary text */
+  --cream-dim:       #6B6560;      /* secondary / muted text */
+
+  /* ── Gold accent ─────────────────────────────────────────── */
+  --gold:            #B49155;
+  --gold-bright:     #C9A96E;
+  --soft-gold:       #D4AF70;
+  --muted-gold:      #9A7840;
+
+  /* ── Borders ──────────────────────────────────────────────── */
+  --line:            rgba(0, 0, 0, 0.08);
+  --border-gold:     rgba(180, 145, 85, 0.28);
+
+  /* ── Shadows ──────────────────────────────────────────────── */
+  --shadow:          0 8px 40px rgba(0, 0, 0, 0.10);
+  --shadow-card:     0 4px 24px rgba(0, 0, 0, 0.07);
+  --shadow-lift:     0 20px 60px rgba(0, 0, 0, 0.12);
+
+  /* ── Feedback ─────────────────────────────────────────────── */
+  --success:         #4A8060;
+  --error:           #B04040;
 }
 
-[data-theme="light"] {
-  --ink: #f6f1e9;
-  --ink-soft: #ede7db;
-  --panel: #e2dbd0;
-  --gold: #9a6b20;
-  --gold-bright: #b07d28;
-  --soft-gold: #c49040;
-  --muted-gold: #8a5e1a;
-  --cream: #1a2233;
-  --cream-dim: #4a5568;
-  --charcoal: #f0ebe3;
-  --luxury-surface: #f8f4ef;
-  --line: rgba(154, 107, 32, 0.22);
-  --border-gold: rgba(154, 107, 32, 0.15);
-  --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.15);
-  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.1);
-  --shadow-lift: 0 40px 80px -20px rgba(0, 0, 0, 0.15);
-  --success: #4a8060;
-  --error: #9b4c4c;
-}
-
-* {
+/* ═══════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -57,221 +52,273 @@ html {
 }
 
 body {
-  background: var(--ink);
+  background: var(--charcoal);
   color: var(--cream);
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Scrollbar ──────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 5px; height: 5px; }
+::-webkit-scrollbar-track        { background: var(--charcoal); }
+::-webkit-scrollbar-thumb        { background: rgba(180,145,85,0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--gold); }
 
-/* ── Selection ──────────────────────────────── */
-::selection { background: var(--gold); color: var(--ink); }
+/* ── Text selection ─────────────────────────────────────── */
+::selection { background: var(--gold); color: #FFFFFF; }
 
-/* ── Focus rings ────────────────────────────── */
+/* ── Focus rings ────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--gold);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
-button:focus:not(:focus-visible),
-a:focus:not(:focus-visible) { outline: none; }
 
-/* ── Links ──────────────────────────────────── */
-a { color: inherit; text-decoration: none; }
-
-/* ── Inputs ─────────────────────────────────── */
-input, textarea, select {
-  font-family: 'Jost', sans-serif;
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════ */
+.h1 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   color: var(--cream);
+}
+
+.h2 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+
+.h3 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cream);
+}
+
+/* ── Eyebrow label ──────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: #FFFFFF;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover {
+  background: var(--muted-gold);
+  border-color: var(--muted-gold);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
   background: transparent;
+  color: var(--cream);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
 }
 
-/* ── Images ─────────────────────────────────── */
-img { max-width: 100%; height: auto; display: block; }
-
-@layer components {
-  /* Eyebrow label */
-  .eyebrow {
-    @apply text-xs tracking-widest uppercase font-medium;
-    color: var(--gold);
-    letter-spacing: 0.42em;
-  }
-
-  /* Typography scale */
-  .display-1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 7vw, 5.5rem);
-    font-weight: 500;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    color: var(--cream);
-  }
-  .h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    color: var(--cream);
-  }
-  .h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 500;
-    line-height: 1.1;
-    color: var(--cream);
-  }
-  .h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
-    font-weight: 500;
-    line-height: 1.2;
-    color: var(--cream);
-  }
-  .body-lg {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    font-weight: 300;
-    color: var(--cream-dim);
-  }
-
-  /* Primary gold button */
-  .btn-gold {
-    @apply inline-flex items-center gap-3 px-7 py-4 text-xs tracking-widest uppercase font-medium border-none cursor-pointer transition-all duration-300;
-    background: var(--gold);
-    color: var(--ink);
-  }
-  .btn-gold:hover {
-    background: var(--gold-bright);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(200, 164, 92, 0.3);
-  }
-  .btn-gold:active { transform: translateY(0); }
-
-  /* Ghost button */
-  .btn-ghost {
-    @apply inline-flex items-center gap-3 px-7 py-4 text-xs tracking-widest uppercase font-medium cursor-pointer transition-all duration-300;
-    background: transparent;
-    color: var(--cream);
-    border: 1px solid var(--line);
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* Section container */
-  .container-page {
-    @apply max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8;
-  }
-
-  /* Section padding */
-  .section-pad {
-    padding-top: clamp(4rem, 8vw, 8rem);
-    padding-bottom: clamp(4rem, 8vw, 8rem);
-  }
-
-  /* Card surface */
-  .card {
-    border: 1px solid var(--line);
-    background: var(--ink-soft);
-  }
-
-  /* Luxury surface card */
-  .luxury-surface {
-    background: var(--luxury-surface);
-  }
-
-  /* Gold bottom line */
-  .gold-line { border-color: var(--line); }
-
-  /* Gold gradient text */
-  .gold-gradient-text {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--soft-gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Drawer overlay */
-  .drawer-overlay {
-    @apply fixed inset-0 z-40;
-    background: rgba(14, 17, 22, 0.7);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-
-  /* Text truncation helpers */
-  .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
-/* ── Value-props grid: responsive border-right ─ */
-.value-grid > div {
-  border-right: 1px solid var(--line);
-}
-.value-grid > div:nth-child(2n) { border-right: none; }
-@media (min-width: 768px) {
-  .value-grid > div:nth-child(2n) { border-right: 1px solid var(--line); }
-  .value-grid > div:last-child    { border-right: none; }
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+.section-pad {
+  padding: clamp(64px, 9vw, 120px) 0;
 }
 
-/* ── Reveal animation ───────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-              transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.reveal.in { opacity: 1; transform: none; }
-
-/* ── Hotspot pulse ──────────────────────────── */
-@keyframes hotspot-pulse {
-  0%   { transform: scale(0.7); opacity: 0.9; }
-  70%  { transform: scale(1.5); opacity: 0; }
-  100% { opacity: 0; }
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 52px);
 }
 
-/* ── Trust marquee ──────────────────────────── */
-@keyframes marquee-slide {
+/* ═══════════════════════════════════════════════════════════
+   CARDS & SURFACES
+   ═══════════════════════════════════════════════════════════ */
+.card {
+  background: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.luxury-surface {
+  background: var(--luxury-surface);
+}
+
+/* ── Gold divider ────────────────────────────────────────── */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.45;
+  border: none;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM INPUTS
+   ═══════════════════════════════════════════════════════════ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+select,
+textarea {
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  outline: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--gold);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--cream-dim);
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Trust bar scroll */
+@keyframes trust-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-33.333%); }
 }
-.trust-track { animation: marquee-slide 40s linear infinite; }
-.trust-track:hover { animation-play-state: paused; }
 
-/* ── Skeleton shimmer ───────────────────────── */
+.trust-track {
+  display: flex;
+  width: max-content;
+  animation: trust-scroll 32s linear infinite;
+}
+
+/* Marquee */
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 26s linear infinite;
+}
+
+/* Hotspot pulse */
+@keyframes hotspot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(180,145,85,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(180,145,85,0); }
+}
+
+.hotspot {
+  animation: hotspot-pulse 2.4s ease-in-out infinite;
+}
+
+/* Shimmer skeleton */
 @keyframes shimmer {
-  from { background-position: -400px 0; }
-  to   { background-position: 400px 0; }
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
-.skeleton {
+
+.shimmer {
   background: linear-gradient(90deg, var(--ink-soft) 25%, var(--panel) 50%, var(--ink-soft) 75%);
-  background-size: 800px 100%;
-  animation: shimmer 1.4s ease-in-out infinite;
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* ── Mobile bottom nav safe area ─────────────── */
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 16px);
+/* ═══════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity  0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Mobile overrides ───────────────────────── */
-@media (max-width: 640px) {
-  .btn-gold, .btn-ghost {
-    @apply px-5 py-3;
-  }
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
 }
 
-/* ── Product card hover effects ─────────────── */
-.product-card-img {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.product-card:hover .product-card-img {
-  transform: scale(1.05);
+/* ═══════════════════════════════════════════════════════════
+   DRAWER OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }

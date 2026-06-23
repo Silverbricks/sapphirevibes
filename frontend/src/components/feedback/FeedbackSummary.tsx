@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -24,7 +24,7 @@ export function FeedbackSummary({ targetId }: Props) {
   const { average, count, distribution } = data;
 
   return (
-    <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap', fontFamily: 'Jost, sans-serif' }}>
+    <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap', fontFamily: 'Inter, sans-serif' }}>
       {/* Big average */}
       <div style={{ textAlign: 'center', flexShrink: 0 }}>
         <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '3.5rem', fontWeight: 500, color: 'var(--cream)', lineHeight: 1 }}>

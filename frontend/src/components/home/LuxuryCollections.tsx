@@ -38,18 +38,16 @@ function CollectionCard({ col, large }: { col: typeof COLLECTIONS[0]; large: boo
       href={`/products?category=${col.slug}`}
       className="group block relative overflow-hidden"
       style={{
-        // Large card fills the grid row-span, small cards keep 4/3 aspect
         aspectRatio: large ? undefined : '4/3',
         height: large ? '100%' : undefined,
         minHeight: large ? 280 : undefined,
-        borderRadius: 4,
         border: '1px solid transparent',
         transition: 'border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(.2,.7,.2,1)',
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget as HTMLElement;
-        el.style.borderColor = 'rgba(200,164,92,0.22)';
-        el.style.boxShadow = '0 20px 50px rgba(200,164,92,0.15)';
+        el.style.borderColor = 'rgba(180,145,85,0.35)';
+        el.style.boxShadow = '0 20px 60px rgba(180,145,85,0.15)';
         el.style.transform = 'translateY(-4px)';
       }}
       onMouseLeave={(e) => {
@@ -59,8 +57,8 @@ function CollectionCard({ col, large }: { col: typeof COLLECTIONS[0]; large: boo
         el.style.transform = 'none';
       }}
     >
-      {/* Background image — scales on hover via group */}
-      <div className="absolute inset-0 transition-transform duration-[700ms] group-hover:scale-[1.06]">
+      {/* Background image — scales on hover */}
+      <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.06]">
         <Image
           src={col.img}
           alt={col.name}
@@ -71,30 +69,37 @@ function CollectionCard({ col, large }: { col: typeof COLLECTIONS[0]; large: boo
         />
       </div>
 
-      {/* Dark gradient overlay — z-[1] so it sits above image, below content */}
+      {/* Dark gradient overlay */}
       <div
         className="absolute inset-0 z-[1]"
-        style={{ background: 'linear-gradient(transparent 30%, rgba(8,10,14,0.88))' }}
+        style={{ background: 'linear-gradient(transparent 28%, rgba(0,0,0,0.82))' }}
       />
 
-      {/* Content — z-[2], correctly positioned absolute (NOT relative) */}
+      {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-7 z-[2]">
-        <p className="eyebrow mb-2" style={{ fontSize: '0.68rem' }}>{col.eyebrow}</p>
+        <p className="eyebrow mb-2" style={{ fontSize: '0.65rem', color: 'rgba(180,145,85,0.85)' }}>
+          {col.eyebrow}
+        </p>
         <h3
-          className="font-serif font-medium leading-tight mb-2"
+          className="font-serif font-semibold leading-tight mb-2"
           style={{
-            fontSize: large ? 'clamp(1.5rem, 2.5vw, 2rem)' : 'clamp(1.2rem, 2vw, 1.6rem)',
-            color: '#fff',
+            fontSize: large ? 'clamp(1.5rem, 2.5vw, 2.1rem)' : 'clamp(1.2rem, 2vw, 1.65rem)',
+            color: '#FFFFFF',
           }}
         >
           {col.name}
         </h3>
-        <p className="text-sm mb-4" style={{ color: 'rgba(244,239,230,0.75)' }}>{col.subtitle}</p>
+        <p
+          className="text-sm mb-4"
+          style={{ color: 'rgba(255,255,255,0.72)' }}
+        >
+          {col.subtitle}
+        </p>
         <span
           className="inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3"
           style={{
             color: 'var(--gold-bright)',
-            fontSize: '0.72rem',
+            fontSize: '0.7rem',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
           }}
@@ -110,10 +115,7 @@ export function LuxuryCollections() {
   const [large, ...rest] = COLLECTIONS;
 
   return (
-    <section
-      className="section-pad"
-      style={{ background: 'var(--ink)' }}
-    >
+    <section className="section-pad" style={{ background: 'var(--luxury-surface)' }}>
       <div className="container-page">
         {/* Section header */}
         <motion.div
@@ -126,13 +128,13 @@ export function LuxuryCollections() {
           <motion.div variants={fadeUp} transition={{ duration: 0.6, ease }}>
             <p className="eyebrow mb-4">Shop by collection</p>
             <h2 className="h2 mb-3">Rooms, reconsidered.</h2>
-            <p style={{ color: 'var(--cream-dim)', maxWidth: 480 }}>
+            <p style={{ color: 'var(--cream-dim)', maxWidth: 460 }}>
               Four edits, each built around a single feeling rather than a category.
             </p>
           </motion.div>
         </motion.div>
 
-        {/* Magazine grid — lg: 2fr 1fr, large card spans 2 rows */}
+        {/* Magazine grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-3"
           style={{ gridAutoRows: 'minmax(240px, auto)' }}
@@ -141,7 +143,7 @@ export function LuxuryCollections() {
           viewport={{ once: true, margin: '-60px' }}
           variants={staggerContainer(0.12)}
         >
-          {/* Large card — spans 2 rows on sm+ */}
+          {/* Large card — spans 2 rows on md+ */}
           <motion.div
             className="md:row-span-2"
             variants={fadeUp}
@@ -150,7 +152,7 @@ export function LuxuryCollections() {
             <CollectionCard col={large} large={true} />
           </motion.div>
 
-          {/* Two stacked small cards */}
+          {/* Two small cards */}
           {rest.map((col, i) => (
             <motion.div
               key={col.slug}

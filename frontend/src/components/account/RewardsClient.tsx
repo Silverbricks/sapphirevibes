@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useQuery } from '@tanstack/react-query';
 import { membershipsService } from '@/services/memberships.service';
@@ -59,7 +59,7 @@ export function RewardsClient() {
                   <p className="text-sm" style={{ color: 'var(--cream)' }}>{action}</p>
                   <span
                     className="text-xs tracking-wider uppercase"
-                    style={{ color: 'var(--gold)', letterSpacing: '0.16em', fontFamily: 'Jost' }}
+                    style={{ color: 'var(--gold)', letterSpacing: '0.16em', fontFamily: 'Inter' }}
                   >
                     {points}
                   </span>

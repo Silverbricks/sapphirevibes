@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -72,7 +72,7 @@ export default function AdminOrdersPage() {
                     <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{o.user?.firstName} {o.user?.lastName}</td>
                     <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{new Date(o.createdAt).toLocaleDateString('en-AU')}</td>
                     <td style={{ padding: '12px 16px', color: 'var(--cream-dim)' }}>{o.items?.length ?? 0}</td>
-                    <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Jost' }}>${Number(o.total).toFixed(2)}</td>
+                    <td style={{ padding: '12px 16px', color: 'var(--gold-bright)', fontFamily: 'Inter' }}>${Number(o.total).toFixed(2)}</td>
                     <td style={{ padding: '12px 16px' }}>
                       <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: STATUS_COLORS[o.status] ?? 'var(--cream-dim)' }}>{o.status}</span>
                     </td>
