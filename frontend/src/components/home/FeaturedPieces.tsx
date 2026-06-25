@@ -22,7 +22,7 @@ const FALLBACK: ShowcaseProduct[] = [
   {
     id: '1', name: 'Aurelia Table Lamp', cat: 'Lighting', price: 289, compare: 340, badge: 'TRENDING',
     img: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80',
-    alt: 'https://images.unsplash.com/photo-1543198126-a4d3dba6b0b8?w=600&q=80',
+    alt: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80',
     slug: 'aurelia-table-lamp',
   },
   {
